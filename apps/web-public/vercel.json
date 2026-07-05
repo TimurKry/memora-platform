@@ -1,0 +1,3 @@
+# Deploy web-public on Vercel: set Root Directory to apps/web-public
+# Install Command: cd ../.. && pnpm install
+# Build Command: cd ../.. && pnpm turbo build --filter=web-public

@@ -1,0 +1,3 @@
+# Deploy web-tenant on Vercel: set Root Directory to apps/web-tenant
+# Install Command: cd ../.. && pnpm install
+# Build Command: cd ../.. && pnpm turbo build --filter=web-tenant
