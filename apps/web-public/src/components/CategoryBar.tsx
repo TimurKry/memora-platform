@@ -44,7 +44,7 @@ const items = [
 export function CategoryBar() {
   return (
     <nav className="border-t border-memora-border" aria-label="Leistungsbereiche">
-      <div className="mx-auto grid max-w-editorial grid-cols-2 md:grid-cols-4">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-2 md:grid-cols-4 border-x border-memora-border">
         {items.map(({ href, label, Icon }, i) => (
           <Link
             key={href}

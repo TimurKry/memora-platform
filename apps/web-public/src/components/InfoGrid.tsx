@@ -1,10 +1,11 @@
 import Link from "next/link";
+import { CemeteryMap } from "./CemeteryMap";
 
 function LilyDrawing() {
   return (
     <svg
       viewBox="0 0 72 110"
-      className="mx-auto mt-8 h-[88px] w-[52px] text-memora-text"
+      className="mt-10 h-[92px] w-[54px] text-memora-text"
       fill="none"
       stroke="currentColor"
       strokeWidth="0.65"
@@ -20,40 +21,28 @@ function LilyDrawing() {
   );
 }
 
-function MiniMap() {
-  return (
-    <div className="relative mt-8 aspect-[4/3] w-full max-w-[140px] border border-memora-border bg-memora-white">
-      <svg viewBox="0 0 140 105" className="h-full w-full opacity-50" aria-hidden>
-        <path d="M0 70 L35 50 L70 65 L105 40 L140 55" fill="none" stroke="#1b1b1b" strokeWidth="0.6" />
-        <path d="M20 90 L60 75 L100 85" fill="none" stroke="#1b1b1b" strokeWidth="0.4" opacity="0.5" />
-        <circle cx="88" cy="48" r="3" fill="#1b1b1b" />
-      </svg>
-    </div>
-  );
-}
-
 export function InfoGrid() {
   return (
     <section className="border-t border-memora-border">
-      <div className="mx-auto grid max-w-editorial md:grid-cols-3">
-        {/* Col 1 */}
-        <div className="border-b border-memora-border px-8 py-12 md:border-b-0 md:border-r lg:px-12 lg:py-16">
+      <div className="grid md:grid-cols-3">
+        <div className="border-b border-memora-border px-8 py-12 md:border-b-0 md:border-r lg:px-10 lg:py-14 xl:px-12">
           <h2 className="section-title">WIR NEHMEN UNS ZEIT.</h2>
           <p className="editorial-body mt-5">
             Jede Abschiednahme ist einzigartig. Wir schaffen Raum für Gespräche, Fragen und
             Entscheidungen — ohne Eile, ohne Druck.
           </p>
-          <LilyDrawing />
+          <div className="flex justify-center md:justify-start">
+            <LilyDrawing />
+          </div>
           <Link
             href="/ueber-uns"
-            className="mt-6 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-memora-text transition-opacity hover:opacity-60"
+            className="mt-2 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-memora-text transition-opacity hover:opacity-60"
           >
             Mehr erfahren <span aria-hidden>→</span>
           </Link>
         </div>
 
-        {/* Col 2 */}
-        <div className="border-b border-memora-border px-8 py-12 md:border-b-0 md:border-r lg:px-12 lg:py-16">
+        <div className="border-b border-memora-border px-8 py-12 md:border-b-0 md:border-r lg:px-10 lg:py-14 xl:px-12">
           <h2 className="section-title">
             FINDEN.
             <br />
@@ -64,7 +53,7 @@ export function InfoGrid() {
           <p className="editorial-body mt-5">
             Friedhof oder Grab finden — mit illustrierten Wegkarten für jeden Friedhof.
           </p>
-          <form className="mt-8" action="/suchen">
+          <form className="mt-7" action="/suchen">
             <label className="sr-only" htmlFor="cemetery-search">
               Friedhof oder Ort
             </label>
@@ -74,9 +63,9 @@ export function InfoGrid() {
                 type="search"
                 name="q"
                 placeholder="Friedhof oder Ort eingeben"
-                className="w-full border border-memora-border bg-memora-white py-3.5 pl-4 pr-10 text-[13px] text-memora-text placeholder:text-memora-muted/50 focus:border-memora-accent focus:outline-none"
+                className="w-full border border-memora-border bg-memora-white py-3.5 pl-4 pr-10 text-[13px] focus:border-memora-accent focus:outline-none"
               />
-              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-memora-muted">
+              <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-[15px] text-memora-muted">
                 ⌕
               </span>
             </div>
@@ -89,23 +78,26 @@ export function InfoGrid() {
           </Link>
         </div>
 
-        {/* Col 3 */}
-        <div className="px-8 py-12 lg:px-12 lg:py-16">
+        <div className="px-8 py-12 lg:px-10 lg:py-14 xl:px-12">
           <h2 className="section-title">HAUPTFRIEDHOF LEIPZIG</h2>
-          <p className="editorial-body mt-5">
-            Friedhof Leipzig-Süd
-            <br />
-            Karl-Liebknecht-Straße 120
-            <br />
-            04275 Leipzig
-          </p>
+          <div className="mt-5 flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+            <p className="editorial-body">
+              Friedhof Leipzig-Süd
+              <br />
+              Karl-Liebknecht-Straße 120
+              <br />
+              04275 Leipzig
+            </p>
+            <div className="aspect-[4/3] w-full max-w-[130px] shrink-0 border border-memora-border bg-memora-white p-2">
+              <CemeteryMap variant="mini" />
+            </div>
+          </div>
           <Link
             href="/kontakt"
             className="mt-5 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-memora-text transition-opacity hover:opacity-60"
           >
             Route planen <span aria-hidden>→</span>
           </Link>
-          <MiniMap />
         </div>
       </div>
     </section>
