@@ -13,17 +13,18 @@
 
 ---
 
-## Цвета
+## Цвета (v2 — editorial)
 
 | Token | HEX | Использование |
 |-------|-----|---------------|
-| `--memora-cream` | `#F7F5F0` | Фон страницы |
-| `--memora-ink` | `#1A1A1A` | Заголовки, кнопки primary |
-| `--memora-ink-muted` | `#5C5C5C` | Body text |
-| `--memora-line` | `#D4D0C8` | Разделители, borders |
-| `--memora-paper` | `#FFFFFF` | Карточки, input |
+| `--memora-white` | `#FFFFFF` | Карточки, input, map bg |
+| `--memora-paper` | `#F7F6F2` | Фон страницы |
+| `--memora-accent` | `#111111` | Кнопки primary |
+| `--memora-text` | `#1B1B1B` | Заголовки, body |
+| `--memora-border` | `#E6E4DF` | Разделители |
+| `--memora-muted` | `#6B6B6B` | Вторичный текст |
 
-**Правило:** без ярких градиентов и фиолетового SaaS-стиля. Монохром + cream.
+**Правило:** без синего, без насыщенных цветов, без градиентов. Ощущение печатного листа.
 
 ---
 

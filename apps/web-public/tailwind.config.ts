@@ -5,15 +5,23 @@ module.exports = {
     extend: {
       colors: {
         memora: {
-          cream: "#f7f5f0",
-          ink: "#1a1a1a",
-          "ink-muted": "#5c5c5c",
-          line: "#d4d0c8",
+          white: "#ffffff",
+          paper: "#f7f6f2",
+          accent: "#111111",
+          text: "#1b1b1b",
+          border: "#e6e4df",
+          muted: "#6b6b6b",
         },
       },
       fontFamily: {
         serif: ["var(--font-playfair)", "Georgia", "serif"],
         sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
+      },
+      letterSpacing: {
+        logo: "0.35em",
+      },
+      maxWidth: {
+        editorial: "1440px",
       },
     },
   },

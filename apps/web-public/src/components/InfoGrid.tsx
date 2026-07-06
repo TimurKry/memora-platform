@@ -1,93 +1,111 @@
 import Link from "next/link";
 
-function LilyIcon() {
+function LilyDrawing() {
   return (
     <svg
-      viewBox="0 0 80 120"
-      className="mx-auto h-24 w-16 text-memora-ink opacity-70"
+      viewBox="0 0 72 110"
+      className="mx-auto mt-8 h-[88px] w-[52px] text-memora-text"
       fill="none"
       stroke="currentColor"
-      strokeWidth="0.8"
+      strokeWidth="0.65"
       aria-hidden
     >
-      <path d="M40 110 L40 50" />
-      <path d="M40 70 Q20 50 25 30 Q40 45 40 55" />
-      <path d="M40 65 Q60 45 55 25 Q40 42 40 52" />
-      <path d="M40 55 Q15 35 30 15 Q38 35 40 48" />
-      <path d="M40 52 Q65 32 50 12 Q42 32 40 45" />
-      <ellipse cx="40" cy="48" rx="6" ry="10" />
+      <path d="M36 100 L36 42" opacity="0.7" />
+      <path d="M36 62 Q18 48 22 28 Q34 44 36 52" opacity="0.55" />
+      <path d="M36 58 Q54 44 50 24 Q38 40 36 50" opacity="0.55" />
+      <path d="M36 48 Q14 30 28 12 Q35 30 36 42" opacity="0.45" />
+      <path d="M36 46 Q58 28 44 10 Q37 28 36 40" opacity="0.45" />
+      <ellipse cx="36" cy="44" rx="5" ry="9" opacity="0.6" />
     </svg>
+  );
+}
+
+function MiniMap() {
+  return (
+    <div className="relative mt-8 aspect-[4/3] w-full max-w-[140px] border border-memora-border bg-memora-white">
+      <svg viewBox="0 0 140 105" className="h-full w-full opacity-50" aria-hidden>
+        <path d="M0 70 L35 50 L70 65 L105 40 L140 55" fill="none" stroke="#1b1b1b" strokeWidth="0.6" />
+        <path d="M20 90 L60 75 L100 85" fill="none" stroke="#1b1b1b" strokeWidth="0.4" opacity="0.5" />
+        <circle cx="88" cy="48" r="3" fill="#1b1b1b" />
+      </svg>
+    </div>
   );
 }
 
 export function InfoGrid() {
   return (
-    <section className="border-b border-memora-line">
-      <div className="mx-auto grid max-w-[1400px] md:grid-cols-3">
-        <div className="vertical-divider px-6 py-10 lg:px-10 lg:py-14">
+    <section className="border-t border-memora-border">
+      <div className="mx-auto grid max-w-editorial md:grid-cols-3">
+        {/* Col 1 */}
+        <div className="border-b border-memora-border px-8 py-12 md:border-b-0 md:border-r lg:px-12 lg:py-16">
           <h2 className="section-title">WIR NEHMEN UNS ZEIT.</h2>
-          <p className="mt-4 text-sm leading-relaxed text-memora-ink-muted">
-            Jede Abschiednahme ist einzigartig. Deshalb nehmen wir uns die Zeit, die Sie brauchen —
-            für Gespräche, Fragen und Entscheidungen in Ruhe.
+          <p className="editorial-body mt-5">
+            Jede Abschiednahme ist einzigartig. Wir schaffen Raum für Gespräche, Fragen und
+            Entscheidungen — ohne Eile, ohne Druck.
           </p>
-          <LilyIcon />
+          <LilyDrawing />
           <Link
             href="/ueber-uns"
-            className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.12em] text-memora-ink hover:underline"
+            className="mt-6 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-memora-text transition-opacity hover:opacity-60"
           >
             Mehr erfahren <span aria-hidden>→</span>
           </Link>
         </div>
 
-        <div className="vertical-divider border-t border-memora-line px-6 py-10 md:border-t-0 lg:px-10 lg:py-14">
+        {/* Col 2 */}
+        <div className="border-b border-memora-border px-8 py-12 md:border-b-0 md:border-r lg:px-12 lg:py-16">
           <h2 className="section-title">
-            FINDEN. ERINNERN.
+            FINDEN.
+            <br />
+            ERINNERN.
             <br />
             VERBUNDEN BLEIBEN.
           </h2>
-          <p className="mt-4 text-sm text-memora-ink-muted">
-            Ort oder Friedhof finden — für eine würdevolle Erinnerung.
+          <p className="editorial-body mt-5">
+            Friedhof oder Grab finden — mit illustrierten Wegkarten für jeden Friedhof.
           </p>
-          <form className="mt-6" action="#suchen">
-            <label className="sr-only" htmlFor="friedhof-search">
-              Friedhof suchen
+          <form className="mt-8" action="/suchen">
+            <label className="sr-only" htmlFor="cemetery-search">
+              Friedhof oder Ort
             </label>
-            <input
-              id="friedhof-search"
-              type="search"
-              placeholder="Friedhof suchen..."
-              className="w-full border border-memora-line bg-white px-4 py-3 text-sm placeholder:text-memora-ink-muted/60 focus:border-memora-ink focus:outline-none"
-            />
+            <div className="relative">
+              <input
+                id="cemetery-search"
+                type="search"
+                name="q"
+                placeholder="Friedhof oder Ort eingeben"
+                className="w-full border border-memora-border bg-memora-white py-3.5 pl-4 pr-10 text-[13px] text-memora-text placeholder:text-memora-muted/50 focus:border-memora-accent focus:outline-none"
+              />
+              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-memora-muted">
+                ⌕
+              </span>
+            </div>
           </form>
           <Link
-            href="#suchen"
-            className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.12em] text-memora-ink hover:underline"
+            href="/karte"
+            className="mt-5 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-memora-text transition-opacity hover:opacity-60"
           >
-            <span aria-hidden>⌖</span> Auf Karte suchen
+            Auf Karte suchen <span aria-hidden>→</span>
           </Link>
         </div>
 
-        <div className="border-t border-memora-line px-6 py-10 md:border-t-0 lg:px-10 lg:py-14">
-          <h2 className="section-title">STANDORT</h2>
-          <p className="mt-4 text-sm text-memora-ink-muted">
-            Memora Platform
+        {/* Col 3 */}
+        <div className="px-8 py-12 lg:px-12 lg:py-16">
+          <h2 className="section-title">HAUPTFRIEDHOF LEIPZIG</h2>
+          <p className="editorial-body mt-5">
+            Friedhof Leipzig-Süd
             <br />
-            Leipzig (Demo)
+            Karl-Liebknecht-Straße 120
             <br />
-            Mo–Fr 8–18 Uhr
+            04275 Leipzig
           </p>
           <Link
             href="/kontakt"
-            className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.12em] text-memora-ink hover:underline"
+            className="mt-5 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-memora-text transition-opacity hover:opacity-60"
           >
             Route planen <span aria-hidden>→</span>
           </Link>
-          <div className="mt-6 h-24 border border-memora-line bg-white/50">
-            <svg viewBox="0 0 200 80" className="h-full w-full opacity-40" aria-hidden>
-              <path d="M0 60 L40 40 L80 55 L120 30 L160 50 L200 35" fill="none" stroke="#1a1a1a" strokeWidth="0.8" />
-              <circle cx="120" cy="30" r="4" fill="#1a1a1a" />
-            </svg>
-          </div>
+          <MiniMap />
         </div>
       </div>
     </section>

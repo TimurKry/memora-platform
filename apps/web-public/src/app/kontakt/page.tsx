@@ -7,9 +7,9 @@ export default function KontaktPage() {
     <>
       <Header />
       <main className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
-        <p className="text-[11px] uppercase tracking-[0.14em] text-memora-ink-muted">Kontakt</p>
+        <p className="text-[11px] uppercase tracking-[0.14em] text-memora-muted">Kontakt</p>
         <h1 className="mt-4 font-serif text-3xl">Wir sind für Sie da</h1>
-        <p className="mt-6 text-memora-ink-muted">
+        <p className="mt-6 text-memora-muted">
           Telefon: +49 341 000 0000
           <br />
           E-Mail: kontakt@memora.app

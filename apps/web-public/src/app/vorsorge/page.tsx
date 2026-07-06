@@ -7,11 +7,11 @@ export default function VorsorgePage() {
     <>
       <Header />
       <main className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
-        <p className="text-[11px] uppercase tracking-[0.14em] text-memora-ink-muted">Vorsorge</p>
+        <p className="text-[11px] uppercase tracking-[0.14em] text-memora-muted">Vorsorge</p>
         <h1 className="mt-4 font-serif text-3xl md:text-4xl">
           Heute planen — Angehörige entlasten
         </h1>
-        <p className="mt-6 text-memora-ink-muted leading-relaxed">
+        <p className="mt-6 text-memora-muted leading-relaxed">
           Vorsorge bedeutet, wichtige Entscheidungen in ruhigen Momenten zu treffen. Diese Seite
           wird mit Inhalten aus dem Collaboration-Ordner ergänzt.
         </p>

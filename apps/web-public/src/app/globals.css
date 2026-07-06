@@ -3,10 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --memora-cream: #f7f5f0;
-  --memora-ink: #1a1a1a;
-  --memora-ink-muted: #5c5c5c;
-  --memora-line: #d4d0c8;
+  --memora-white: #ffffff;
+  --memora-paper: #f7f6f2;
+  --memora-accent: #111111;
+  --memora-text: #1b1b1b;
+  --memora-border: #e6e4df;
+  --memora-muted: #6b6b6b;
 }
 
 @layer base {
@@ -15,29 +17,57 @@
   }
 
   body {
-    background-color: var(--memora-cream);
-    color: var(--memora-ink);
+    background-color: var(--memora-paper);
+    color: var(--memora-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+}
+
+/* Subtle paper grain */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
 }
 
 @layer components {
   .nav-link {
-    @apply text-[11px] font-medium uppercase tracking-[0.14em] text-memora-ink-muted transition hover:text-memora-ink;
+    @apply text-[10px] font-normal uppercase tracking-[0.18em] text-memora-muted transition-colors duration-300 hover:text-memora-text;
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-memora-ink px-6 py-3 text-[11px] font-medium uppercase tracking-[0.12em] text-white transition hover:bg-neutral-800;
+    @apply inline-flex items-center gap-3 bg-memora-accent px-7 py-3.5 text-[10px] font-normal uppercase tracking-[0.16em] text-white transition-opacity duration-300 hover:opacity-85;
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2 border border-memora-ink bg-transparent px-6 py-3 text-[11px] font-medium uppercase tracking-[0.12em] text-memora-ink transition hover:bg-memora-ink hover:text-white;
+    @apply inline-flex items-center gap-3 border border-memora-accent bg-memora-white px-7 py-3.5 text-[10px] font-normal uppercase tracking-[0.16em] text-memora-text transition-colors duration-300 hover:bg-memora-accent hover:text-white;
   }
 
   .section-title {
-    @apply font-serif text-xl leading-snug md:text-2xl;
+    @apply font-serif text-[1.35rem] leading-[1.25] tracking-[-0.01em] md:text-[1.5rem];
   }
 
-  .vertical-divider {
-    @apply border-r border-memora-line;
+  .editorial-body {
+    @apply text-[13px] leading-[1.75] text-memora-muted md:text-sm;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s ease-out both;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
