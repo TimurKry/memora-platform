@@ -2,8 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --memora-cream: #f7f5f0;
+  --memora-ink: #1a1a1a;
+  --memora-ink-muted: #5c5c5c;
+  --memora-line: #d4d0c8;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--memora-cream);
+    color: var(--memora-ink);
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-[11px] font-medium uppercase tracking-[0.14em] text-memora-ink-muted transition hover:text-memora-ink;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-memora-ink px-6 py-3 text-[11px] font-medium uppercase tracking-[0.12em] text-white transition hover:bg-neutral-800;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-memora-ink bg-transparent px-6 py-3 text-[11px] font-medium uppercase tracking-[0.12em] text-memora-ink transition hover:bg-memora-ink hover:text-white;
+  }
+
+  .section-title {
+    @apply font-serif text-xl leading-snug md:text-2xl;
+  }
+
+  .vertical-divider {
+    @apply border-r border-memora-line;
   }
 }

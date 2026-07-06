@@ -5,26 +5,15 @@ module.exports = {
     extend: {
       colors: {
         memora: {
-          50: "#f5f3f7",
-          100: "#ebe6ef",
-          200: "#d6ccdf",
-          300: "#b8a8c8",
-          400: "#967fad",
-          500: "#7a6393",
-          600: "#634f7a",
-          700: "#524164",
-          800: "#453754",
-          900: "#3d2b4a",
-          950: "#241629",
-        },
-        gold: {
-          400: "#c9a962",
-          500: "#b8860b",
+          cream: "#f7f5f0",
+          ink: "#1a1a1a",
+          "ink-muted": "#5c5c5c",
+          line: "#d4d0c8",
         },
       },
       fontFamily: {
-        serif: ["Georgia", "Cambria", "Times New Roman", "serif"],
-        sans: ["system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+        serif: ["var(--font-playfair)", "Georgia", "serif"],
+        sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
       },
     },
   },

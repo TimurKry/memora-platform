@@ -34,6 +34,7 @@ pnpm dev
 
 ## Documentation
 
+- [Collaboration workspace](./collaboration/README.md) — **работа с партнёршей**
 - [Tech Stack](./docs/tech-stack.md)
 - [Business Structure](./docs/prd/03-business-structure.md)
 - [PRD Outline](./docs/prd/README.md)
