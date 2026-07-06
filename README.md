@@ -44,13 +44,30 @@ pnpm dev
 - **Case model:** First-class entity from MVP
 - **web-public:** Included in MVP
 
-## Deploy (GitHub → Vercel)
+## Deploy (GitHub Pages — бесплатно)
 
-Each app in `apps/` can be deployed separately on Vercel:
+После push сайт доступен на **`https://ВАШ-USERNAME.github.io/memora-platform/`**
 
-- Root directory: `apps/web-public` (or web-tenant, etc.)
-- Framework: Next.js
-- Build: `cd ../.. && pnpm install && pnpm turbo build --filter=web-public`
+### Быстрый деплой (2 команды)
+
+```powershell
+gh auth login
+cd C:\Users\timur\Projects\memora-platform
+.\scripts\push-github-pages.ps1
+```
+
+Скрипт: создаёт repo → push → включает GitHub Pages → запускает deploy.
+
+| URL | Что это |
+|-----|---------|
+| `/` | Поиск бюро (B2C) |
+| `/demo/` | White-label + бронирование |
+
+Deploy занимает **2–3 минуты**. Статус: `gh run list`
+
+### Вручную включить Pages (если нужно)
+
+GitHub → repo → **Settings → Pages → Source: GitHub Actions**
 
 ---
 

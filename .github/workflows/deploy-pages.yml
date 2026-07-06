@@ -35,7 +35,7 @@ jobs:
         env:
           GITHUB_PAGES: "true"
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: pnpm turbo build --filter=web-public
+        run: pnpm --filter web-public build
 
       - uses: actions/upload-pages-artifact@v3
         with:

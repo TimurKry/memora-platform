@@ -10,3 +10,5 @@ build
 .DS_Store
 Thumbs.db
 .vercel
+commitmsg.txt
+apps/web-public/out
