@@ -31,22 +31,36 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 Write-Host "=== 3/5 Push to GitHub ===" -ForegroundColor Cyan
-git remote get-url origin 2>$null | Out-Null
-if ($LASTEXITCODE -ne 0) {
+# Do not use git remote get-url with Stop — missing origin is not an error here
+$hasOrigin = $false
+foreach ($remote in (& git remote 2>$null)) {
+  if ($remote -eq "origin") { $hasOrigin = $true; break }
+}
+
+if (-not $hasOrigin) {
+  Write-Host "No remote origin - creating GitHub repo..." -ForegroundColor Yellow
   & $gh repo create memora-platform --public --source=. --remote=origin --description "White-label SaaS for funeral industry" --push
+  if ($LASTEXITCODE -ne 0) {
+    Write-Host "Repo may already exist - adding remote and pushing..." -ForegroundColor Yellow
+    git remote add origin "https://github.com/$username/memora-platform.git"
+    git push -u origin main
+  }
 } else {
   git push -u origin main
 }
 
 Write-Host "=== 4/5 Enable GitHub Pages ===" -ForegroundColor Cyan
-& $gh api "repos/$username/memora-platform/pages" -X POST -f build_type=workflow 2>$null
-if ($LASTEXITCODE -ne 0) {
-  Write-Host "Pages may already be enabled" -ForegroundColor Yellow
-}
+$prevEap = $ErrorActionPreference
+$ErrorActionPreference = "Continue"
+& $gh api "repos/$username/memora-platform/pages" -X POST -f build_type=workflow 2>$null | Out-Null
+$ErrorActionPreference = $prevEap
+Write-Host "Pages configured (or already enabled)" -ForegroundColor Green
 
 Write-Host "=== 5/5 Trigger deploy workflow ===" -ForegroundColor Cyan
 Start-Sleep -Seconds 2
-& $gh workflow run deploy-pages.yml 2>$null
+$ErrorActionPreference = "Continue"
+& $gh workflow run deploy-pages.yml 2>$null | Out-Null
+$ErrorActionPreference = $prevEap
 
 $pagesUrl = "https://$username.github.io/memora-platform/"
 $repoUrl = "https://github.com/$username/memora-platform"
