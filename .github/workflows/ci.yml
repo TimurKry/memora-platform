@@ -18,9 +18,13 @@ jobs:
           node-version: 20
           cache: pnpm
 
-      - run: pnpm install --frozen-lockfile
-        continue-on-error: true
-
       - run: pnpm install
 
-      - run: pnpm --filter web-public build --filter web-tenant --filter web-partner --filter web-admin
+      - name: Build web-public (GitHub Pages mode)
+        env:
+          GITHUB_PAGES: "true"
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: pnpm --filter web-public build
+
+      - name: Build other apps
+        run: pnpm --filter web-tenant --filter web-partner --filter web-admin build

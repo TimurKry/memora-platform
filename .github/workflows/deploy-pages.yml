@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -35,7 +35,10 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: pnpm --filter web-public build
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Add .nojekyll for GitHub Pages
+        run: touch apps/web-public/out/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: apps/web-public/out
 
