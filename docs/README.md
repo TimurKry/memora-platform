@@ -76,12 +76,13 @@ docs/
 | Тема | Документ |
 |------|----------|
 | **Экосистема и деньги** | [ECOSYSTEM.md](ECOSYSTEM.md) |
+| **Инфографика экосистемы** | [business/ecosystem-infographic.md](business/ecosystem-infographic.md) |
 | Монетизация (развёрнуто) | [../collaboration/monetization-win-win.md](../collaboration/monetization-win-win.md) |
 | Видение продукта | [prd/01-vision.md](prd/01-vision.md) |
 | Бизнес-модель | [prd/02-business-model.md](prd/02-business-model.md) · [business/](business/) |
 | Сущности и Case | [prd/03-business-structure.md](prd/03-business-structure.md) |
 | Роли и RBAC | [prd/04-personas-roles.md](prd/04-personas-roles.md) |
-| Пользовательские потоки | [prd/05-user-flows.md](prd/05-user-flows.md) · [user-flows/](user-flows/) |
+| Пользовательские потоки | [prd/05-user-flows.md](prd/05-user-flows.md) · [user-flows/](user-flows/) · **[service-lifecycle.md](user-flows/service-lifecycle.md)** |
 | Фичи MVP | [prd/06-features.md](prd/06-features.md) |
 | База данных | [prd/07-database.md](prd/07-database.md) · [database/](database/) |
 | Roadmap | [prd/12-roadmap.md](prd/12-roadmap.md) · [roadmap/](roadmap/) |

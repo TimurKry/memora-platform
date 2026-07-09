@@ -1,6 +1,11 @@
 # User Flows & Journeys
 
-🟡 [`../prd/05-user-flows.md`](../prd/05-user-flows.md). Add Mermaid sequence diagrams per journey in this folder.
+🟡 [`../prd/05-user-flows.md`](../prd/05-user-flows.md).
+
+| Документ | Описание |
+|----------|----------|
+| **[service-lifecycle.md](service-lifecycle.md)** | ✅ **Жизненный цикл step-by-step** — бюро, ветки, автоматизация |
+| [GitHub Pages](https://timurkry.github.io/memora-platform/oekosystem/) | Интерактивная инфографика |
 
 **Priority journeys:**
 
