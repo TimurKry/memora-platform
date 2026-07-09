@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { InfoGridSearch } from "./map/InfoGridSearch";
-import { EditorialStreetMap } from "./map/EditorialStreetMap";
+import { EditorialMapboxStatic } from "./map/EditorialMapboxStatic";
 
 function LilyDrawing() {
   return (
@@ -80,7 +80,7 @@ export function InfoGrid() {
               className="aspect-[4/3] w-full max-w-[130px] shrink-0 border border-memora-border bg-[#faf9f6] p-1.5 transition-opacity hover:opacity-80"
               aria-label="Karte: Hauptfriedhof Leipzig"
             >
-              <EditorialStreetMap label="Südfriedhof" className="h-full w-full" />
+              <EditorialMapboxStatic label="Südfriedhof" className="h-full w-full" />
             </Link>
           </div>
           <Link

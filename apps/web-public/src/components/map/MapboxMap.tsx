@@ -32,6 +32,8 @@ export function MapboxMap({
     if (!containerRef.current) return;
 
     mapboxgl.accessToken = getMapboxToken();
+    // CDN worker — fixes GitHub Pages subpath (/memora-platform/)
+    mapboxgl.workerUrl = `https://api.mapbox.com/mapbox-gl-js/v${mapboxgl.version}/mapbox-gl-csp-worker.js`;
 
     const map = new mapboxgl.Map({
       container: containerRef.current,

@@ -5,6 +5,9 @@ const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "memora-platfor
 
 const nextConfig: NextConfig = {
   transpilePackages: ["@memora/shared"],
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGithubPages ? `/${repoName}` : "",
+  },
   ...(isGithubPages
     ? {
         output: "export" as const,

@@ -1,25 +1,54 @@
-# Mapbox Integration
+# Mapbox — настройка карты
 
-## Purpose
+## Почему карта не работает
 
-Cemetery maps, geocoding, grave search, navigation.
+Mapbox требует **public token**, который вшивается в сборку Next.js (`NEXT_PUBLIC_MAPBOX_TOKEN`).
 
-## Business Goal
+| Среда | Что нужно |
+|-------|-----------|
+| **Локально** | `apps/web-public/.env.local` с токеном |
+| **GitHub Pages** | Secret `MAPBOX_TOKEN` в репозитории → пересборка deploy |
 
-Family value (find cemetery/grave); cemetery SaaS differentiation.
+Без токена при `pnpm build` на `/karte` показывается SVG-заглушка, а не интерактивная карта.
 
-## Technical Goal
+## Локально
 
-`mapbox-gl`, Geocoding API, static images; editorial `light-v11` style.
+```env
+# apps/web-public/.env.local
+NEXT_PUBLIC_MAPBOX_TOKEN=pk.eyJ...
+```
 
-## Status
+Тот же токен, что в `meeting-point-finder` (Mapbox Dashboard).
 
-🟡 Implemented on `web-public` `/karte` and InfoGrid. Requires `MAPBOX_TOKEN` GitHub secret.
+```bash
+pnpm dev:public
+# → http://localhost:3000/karte/
+```
 
-## Dependencies
+## GitHub Pages
 
-[`../cemetery/README.md`](../cemetery/README.md)
+1. GitHub → **Settings → Secrets and variables → Actions**
+2. **New repository secret**
+   - Name: `MAPBOX_TOKEN`
+   - Value: public token из Mapbox
+3. Push в `main` или **Re-run** workflow Deploy GitHub Pages
 
-## MEMORA revenue
+Workflow уже передаёт секрет в сборку:
 
-Indirect — drives cemetery SaaS and family engagement on web-public.
+```yaml
+NEXT_PUBLIC_MAPBOX_TOKEN: ${{ secrets.MAPBOX_TOKEN }}
+```
+
+## Где какая карта
+
+| Страница | Тип | Нужен токен |
+|----------|-----|-------------|
+| `/` Hero | SVG пейзаж (editorial) | Нет |
+| `/` Standort | Mapbox Static + grayscale | Да (при build) |
+| `/karte` | Mapbox GL интерактив | Да (при build) |
+
+## Editorial-стиль
+
+- Стиль: `mapbox://styles/mapbox/light-v11`
+- CSS: полный grayscale + cream overlay
+- Без спутниковых фото и ярких цветов
