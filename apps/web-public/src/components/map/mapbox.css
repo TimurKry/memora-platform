@@ -1,5 +1,10 @@
 .mapbox-editorial {
-  filter: grayscale(0.35) contrast(1.02);
+  filter: grayscale(1) contrast(1.04) brightness(1.03);
+  background: #faf9f6;
+}
+
+.mapbox-editorial .mapboxgl-canvas {
+  outline: none;
 }
 
 .mapbox-editorial .mapboxgl-ctrl-group {

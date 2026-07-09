@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { DEMO_CEMETERY, type MapLocation } from "@memora/shared";
 import { CemeterySearch } from "./CemeterySearch";
 import { MapboxMapClient } from "./MapboxMapClient";
+import { CemeteryMap } from "../CemeteryMap";
 import type { GeocodingResult } from "@/lib/mapbox";
 import { hasMapboxToken } from "@/lib/mapbox";
 
@@ -45,13 +46,13 @@ export function KarteMapSection() {
 
   if (!hasMapboxToken()) {
     return (
-      <div className="border border-[#E6E4DF] bg-[#F7F6F2] p-8 text-center">
-        <p className="text-sm text-[#1B1B1B]">Mapbox-Token fehlt</p>
-        <p className="mt-2 text-xs text-[#666]">
-          <code className="bg-white px-1">NEXT_PUBLIC_MAPBOX_TOKEN</code> in{" "}
-          <code className="bg-white px-1">apps/web-public/.env.local</code> setzen — denselben
-          Token wie in meeting-point-finder verwenden.
+      <div className="space-y-6">
+        <p className="text-xs text-memora-muted">
+          Interaktive Karte — Token in <code className="text-memora-text">.env.local</code>
         </p>
+        <div className="aspect-[4/3] w-full border border-memora-border bg-[#faf9f6] p-4">
+          <CemeteryMap variant="hero" />
+        </div>
       </div>
     );
   }
@@ -59,7 +60,7 @@ export function KarteMapSection() {
   return (
     <div className="space-y-6">
       <CemeterySearch onSelect={handleSelect} />
-      <div className="aspect-[4/3] w-full border border-[#E6E4DF]">
+      <div className="aspect-[4/3] w-full border border-memora-border bg-[#faf9f6] p-3 shadow-[inset_0_0_0_1px_rgba(27,27,27,0.04)]">
         <MapboxMapClient
           center={location.coordinates}
           zoom={15}

@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { CemeteryMap } from "./CemeteryMap";
+import { EditorialLandscapeMap } from "./map/EditorialLandscapeMap";
 
 export function HeroSection() {
   return (
     <section className="grid lg:grid-cols-2">
-      {/* Copy */}
       <div className="fade-in flex flex-col justify-center border-b border-memora-border px-8 py-14 lg:border-b-0 lg:border-r lg:px-12 lg:py-20 xl:px-14">
         <p className="mb-6 text-[10px] uppercase tracking-[0.22em] text-memora-muted">
           Memorial Technology
@@ -31,10 +30,9 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Map */}
       <div className="fade-in flex items-center justify-center bg-memora-white px-6 py-10 lg:px-10 lg:py-14">
-        <div className="relative aspect-[4/3] w-full max-w-[540px]">
-          <CemeteryMap variant="hero" />
+        <div className="relative aspect-[4/3] w-full max-w-[540px] border border-memora-border bg-[#faf9f6] p-3 shadow-[inset_0_0_0_1px_rgba(27,27,27,0.04)] lg:p-4">
+          <EditorialLandscapeMap />
         </div>
       </div>
     </section>

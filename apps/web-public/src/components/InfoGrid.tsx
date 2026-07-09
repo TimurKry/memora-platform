@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { InfoGridSearch } from "./map/InfoGridSearch";
-import { MapboxStaticPreview } from "./map/MapboxStaticPreview";
+import { EditorialStreetMap } from "./map/EditorialStreetMap";
 
 function LilyDrawing() {
   return (
@@ -75,9 +75,13 @@ export function InfoGrid() {
               <br />
               04275 Leipzig
             </p>
-            <div className="aspect-[4/3] w-full max-w-[130px] shrink-0 border border-memora-border overflow-hidden">
-              <MapboxStaticPreview className="h-full w-full" />
-            </div>
+            <Link
+              href="/karte"
+              className="aspect-[4/3] w-full max-w-[130px] shrink-0 border border-memora-border bg-[#faf9f6] p-1.5 transition-opacity hover:opacity-80"
+              aria-label="Karte: Hauptfriedhof Leipzig"
+            >
+              <EditorialStreetMap label="Südfriedhof" className="h-full w-full" />
+            </Link>
           </div>
           <Link
             href="/kontakt"
