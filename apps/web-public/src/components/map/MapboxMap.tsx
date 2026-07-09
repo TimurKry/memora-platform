@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import "mapbox-gl/dist/mapbox-gl.css";
 import { DEMO_CEMETERY, MAPBOX_STYLE, type MapLocation } from "@memora/shared";
 import { getMapboxToken, hasMapboxToken } from "@/lib/mapbox";
 import { CemeteryMap } from "../CemeteryMap";
@@ -40,7 +41,6 @@ export function MapboxMap({
     async function initMap() {
       try {
         const mapboxModule = await import("mapbox-gl");
-        await import("mapbox-gl/dist/mapbox-gl.css");
 
         if (cancelled || !containerRef.current) return;
 
