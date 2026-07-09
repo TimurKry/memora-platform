@@ -1,12 +1,14 @@
 import Link from "next/link";
-import { NoirMapHero } from "./map/NoirMapHero";
+import { EditorialMapHero } from "./map/EditorialMapHero";
 
 export function HeroSection() {
   return (
     <section className="grid lg:grid-cols-2">
-      <div className="fade-in flex flex-col justify-center border-b border-memora-border bg-memora-paper px-8 py-14 lg:border-b-0 lg:border-r lg:px-12 lg:py-20 xl:px-14">
-        <p className="noir-eyebrow mb-6 text-memora-gold">Memorial Technology · Leipzig</p>
-        <h1 className="font-serif text-[1.85rem] italic leading-[1.12] tracking-[-0.03em] sm:text-[2.15rem] lg:text-[2.65rem] xl:text-[2.85rem]">
+      <div className="fade-in flex flex-col justify-center border-b border-memora-border px-8 py-14 lg:border-b-0 lg:border-r lg:px-12 lg:py-20 xl:px-14">
+        <p className="mb-6 text-[10px] uppercase tracking-[0.22em] text-memora-muted">
+          Memorial Technology · Leipzig
+        </p>
+        <h1 className="font-serif text-[1.85rem] leading-[1.14] tracking-[-0.02em] sm:text-[2.15rem] lg:text-[2.65rem] xl:text-[2.85rem]">
           WIR SIND FÜR SIE DA.
           <br />
           IN MOMENTEN,
@@ -14,8 +16,8 @@ export function HeroSection() {
           DIE ZÄHLEN.
         </h1>
         <p className="editorial-body mt-7 max-w-[24rem] lg:max-w-[26rem]">
-          MEMORA verbindet Friedhöfe, Bestattungsunternehmen und Familien — Klarheit im
-          Schatten, Würde im Licht.
+          MEMORA verbindet Friedhöfe, Bestattungsunternehmen und Familien — mit Klarheit, Würde
+          und Respekt. Die digitale Infrastruktur des Gedenkens.
         </p>
         <div className="mt-9 flex flex-wrap gap-3">
           <Link href="/suchen" className="btn-primary">
@@ -28,9 +30,9 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="fade-in flex items-center justify-center bg-memora-ink px-4 py-8 lg:px-8 lg:py-12">
-        <div className="noir-map-frame aspect-[4/3] w-full max-w-[540px] p-1">
-          <NoirMapHero />
+      <div className="fade-in flex items-center justify-center bg-memora-white px-6 py-10 lg:px-10 lg:py-14">
+        <div className="editorial-map-frame aspect-[4/3] w-full max-w-[540px] p-3 lg:p-4">
+          <EditorialMapHero />
         </div>
       </div>
     </section>

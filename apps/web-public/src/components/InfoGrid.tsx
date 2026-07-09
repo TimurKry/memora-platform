@@ -77,7 +77,7 @@ export function InfoGrid() {
             </p>
             <Link
               href="/karte"
-              className="noir-map-frame aspect-[4/3] w-full max-w-[130px] shrink-0 p-0.5 transition-opacity hover:opacity-90"
+              className="aspect-[4/3] w-full max-w-[130px] shrink-0 border border-memora-border bg-[#faf9f6] p-1.5 transition-opacity hover:opacity-80"
               aria-label="Karte: Hauptfriedhof Leipzig"
             >
               <EditorialMapboxStatic label="Südfriedhof" className="h-full w-full" />

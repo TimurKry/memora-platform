@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { DEMO_CEMETERY } from "@memora/shared";
 import { hasMapboxToken, staticMapUrl } from "@/lib/mapbox";
-import { NoirCityMap } from "./NoirCityMap";
+import { EditorialStreetMap } from "./EditorialStreetMap";
 
 interface EditorialMapboxStaticProps {
   className?: string;
@@ -13,7 +13,7 @@ export function EditorialMapboxStatic({
   label = "Südfriedhof",
 }: EditorialMapboxStaticProps) {
   if (!hasMapboxToken()) {
-    return <NoirCityMap className={className} />;
+    return <EditorialStreetMap className={className} label={label} />;
   }
 
   const src = staticMapUrl(DEMO_CEMETERY.coordinates, {
@@ -23,19 +23,23 @@ export function EditorialMapboxStatic({
   });
 
   return (
-    <div className={`relative h-full w-full overflow-hidden bg-memora-ink ${className}`}>
+    <div className={`relative h-full w-full overflow-hidden bg-[#faf9f6] ${className}`}>
       <Image
         src={src}
         alt={`Karte: ${DEMO_CEMETERY.name}`}
         fill
-        className="object-cover contrast-[1.2] brightness-[0.75] saturate-0"
+        className="object-cover grayscale contrast-[1.06] brightness-[1.04]"
         sizes="130px"
         unoptimized
       />
-      <div className="noir-map-overlay pointer-events-none absolute inset-0" aria-hidden />
-      <p className="pointer-events-none absolute bottom-1.5 left-0 right-0 text-center font-noir text-[7px] uppercase tracking-noir text-memora-gold opacity-80">
-        {label}
-      </p>
+      <div
+        className="pointer-events-none absolute inset-0 bg-[#f7f6f2]/25 mix-blend-soft-light"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 shadow-[inset_0_0_24px_rgba(247,246,242,0.5)]"
+        aria-hidden
+      />
     </div>
   );
 }

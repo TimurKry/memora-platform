@@ -49,7 +49,7 @@ export function CategoryBar() {
           <Link
             key={href}
             href={href}
-            className={`group flex flex-col items-center px-4 py-10 text-center transition-colors duration-300 hover:bg-memora-surface ${
+            className={`group flex flex-col items-center px-4 py-10 text-center transition-colors duration-300 hover:bg-memora-white/60 ${
               i < items.length - 1 ? "md:border-r md:border-memora-border" : ""
             } ${i % 2 === 0 ? "border-r border-memora-border md:border-r" : ""} ${
               i < 2 ? "border-b border-memora-border md:border-b-0" : ""

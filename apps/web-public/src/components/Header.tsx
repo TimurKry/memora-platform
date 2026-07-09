@@ -3,9 +3,9 @@ import Link from "next/link";
 function LogoMark() {
   return (
     <span className="relative block h-[26px] w-[26px] shrink-0" aria-hidden>
-      <span className="absolute left-0 top-0 h-[8px] w-[8px] rounded-full bg-memora-gold" />
-      <span className="absolute right-0 top-0 h-[8px] w-[8px] rounded-full bg-memora-gold" />
-      <span className="absolute bottom-0 left-1/2 h-[8px] w-[8px] -translate-x-1/2 rounded-full bg-memora-gold" />
+      <span className="absolute left-0 top-0 h-[8px] w-[8px] rounded-full bg-memora-accent" />
+      <span className="absolute right-0 top-0 h-[8px] w-[8px] rounded-full bg-memora-accent" />
+      <span className="absolute bottom-0 left-1/2 h-[8px] w-[8px] -translate-x-1/2 rounded-full bg-memora-accent" />
     </span>
   );
 }
@@ -16,7 +16,7 @@ export function Header() {
       <div className="mx-auto grid max-w-[1280px] grid-cols-[1fr_auto_1fr] items-center border-x border-memora-border px-6 py-5 lg:px-10">
         <Link href="/" className="flex items-center gap-3 justify-self-start">
           <LogoMark />
-          <span className="font-serif text-[14px] tracking-logo text-memora-accent">MEMORA</span>
+          <span className="font-serif text-[14px] tracking-logo text-memora-text">MEMORA</span>
         </Link>
 
         <nav
@@ -46,8 +46,8 @@ export function Header() {
             className="flex h-9 w-9 flex-col items-center justify-center gap-[5px]"
             aria-label="Menü öffnen"
           >
-            <span className="h-px w-[18px] bg-memora-gold" />
-            <span className="h-px w-[18px] bg-memora-gold" />
+            <span className="h-px w-[18px] bg-memora-accent" />
+            <span className="h-px w-[18px] bg-memora-accent" />
           </button>
         </div>
       </div>

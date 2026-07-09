@@ -46,7 +46,7 @@ export function TrustSidebar() {
 
         <div className="hidden flex-col items-center border-t border-memora-border px-4 py-8 text-center lg:flex">
           <p className="text-[8px] uppercase tracking-[0.16em] text-memora-muted">Bewertungen</p>
-          <p className="mt-2 font-serif text-[1.65rem] italic leading-none text-memora-gold">4.9</p>
+          <p className="mt-2 font-serif text-[1.65rem] leading-none">4.9</p>
           <p className="mt-1 text-[10px] tracking-[0.2em]" aria-hidden>
             ★★★★★
           </p>
@@ -54,7 +54,6 @@ export function TrustSidebar() {
         </div>
       </div>
 
-      {/* Mobile ratings */}
       <div className="border-t border-memora-border py-6 text-center lg:hidden">
         <p className="text-[8px] uppercase tracking-[0.16em] text-memora-muted">Bewertungen · 4.9 ★★★★★ (128)</p>
       </div>

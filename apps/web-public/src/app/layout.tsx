@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Oswald, Playfair_Display } from "next/font/google";
+import { DM_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -8,13 +8,6 @@ const playfair = Playfair_Display({
   display: "swap",
   style: ["normal", "italic"],
   weight: ["400", "500", "600", "700"],
-});
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  variable: "--font-oswald",
-  display: "swap",
-  weight: ["400", "500", "600"],
 });
 
 const dmSans = DM_Sans({
@@ -32,10 +25,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="de"
-      className={`${playfair.variable} ${dmSans.variable} ${oswald.variable}`}
-    >
+    <html lang="de" className={`${playfair.variable} ${dmSans.variable}`}>
       <body className="min-h-screen bg-memora-paper font-sans antialiased text-memora-text">
         {children}
       </body>

@@ -67,7 +67,7 @@ export function staticMapUrl(
   const width = options?.width ?? 560;
   const height = options?.height ?? 400;
   const zoom = options?.zoom ?? 14;
-  const style = options?.style ?? "dark-v11";
+  const style = options?.style ?? "light-v11";
 
-  return `https://api.mapbox.com/styles/v1/mapbox/${style}/static/pin-l+b5a17a(${lng},${lat})/${lng},${lat},${zoom},0/${width}x${height}@2x?access_token=${token}`;
+  return `https://api.mapbox.com/styles/v1/mapbox/${style}/static/pin-l+1b1b1b(${lng},${lat})/${lng},${lat},${zoom},0/${width}x${height}@2x?access_token=${token}`;
 }
