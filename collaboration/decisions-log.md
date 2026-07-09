@@ -13,6 +13,7 @@
 | 2026-07-06 | — | Папка `collaboration/` для работы с партнёршей | — |
 | 2026-07-09 | Timur | Win-win monetization: SaaS + payment fee + leads + marketplace | См. `collaboration/monetization-win-win.md` |
 | 2026-07-09 | Timur | B2C бесплатно; зарабатываем с B2B и транзакций | Этика DE, aligned incentives |
+| 2026-07-09 | Timur | Technical Documentation Agent + ECOSYSTEM.md | AGENTS.md, docs/ structure |
 
 ---
 

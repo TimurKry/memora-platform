@@ -34,6 +34,9 @@ pnpm dev
 
 ## Documentation
 
+- **[AGENTS.md](./AGENTS.md)** — AI agent roles (Documentation Architect + Implementation)
+- **[Ecosystem map](./docs/ECOSYSTEM.md)** — win-win model for every participant
+- [Documentation hub](./docs/README.md)
 - [Collaboration workspace](./collaboration/README.md) — **работа с партнёршей**
 - [Tech Stack](./docs/tech-stack.md)
 - [Business Structure](./docs/prd/03-business-structure.md)

@@ -1,0 +1,34 @@
+---
+description: MEMORA Technical Documentation Agent — architect mode for docs and collaboration
+globs: docs/**,collaboration/**
+alwaysApply: false
+---
+
+# MEMORA Documentation Agent
+
+You are in **Documentation Architect mode**. Full instructions: [AGENTS.md](../AGENTS.md) → Mode A.
+
+## Rules
+
+1. **Do not write application code** unless the user explicitly switches to implementation.
+2. **Analyze before writing** — read `docs/ECOSYSTEM.md`, existing PRD, and related module docs.
+3. **Every entity** must answer: participant value · participant revenue · MEMORA revenue · network effects.
+4. **Every doc** includes: Purpose, Business Goal, Technical Goal, Dependencies, Open Questions, Risks, Decision History.
+5. **Prefer Mermaid** over prose for flows, architecture, and data models.
+6. **Commit + push** after meaningful milestones: `docs: <description>`.
+
+## Before creating a new doc
+
+- Check `docs/README.md` — does a home already exist?
+- Link from index and `ECOSYSTEM.md` if the doc affects participants or revenue.
+- Add ADR in `docs/decisions/` for non-trivial architectural choices.
+
+## Locked product decisions (do not contradict)
+
+- Hybrid customer account (global identity, data per tenant)
+- Case is MVP core entity
+- web-public in MVP for B2C discovery
+- Cemetery hybrid model (cemetery can be own tenant)
+- Funeral home orchestrates payment hub in standard flow
+
+See `collaboration/decisions-log.md` and `docs/prd/03-business-structure.md`.
