@@ -78,6 +78,7 @@ docs/
 | **Экосистема и деньги** | [ECOSYSTEM.md](ECOSYSTEM.md) |
 | **Инфографика экосистемы** | [business/ecosystem-infographic.md](business/ecosystem-infographic.md) |
 | **Анализ рынка EU+US** | [business/market-analysis-eu-us.md](business/market-analysis-eu-us.md) |
+| **Unit economics** | [business/unit-economics.md](business/unit-economics.md) |
 | **Жизненный цикл (step-by-step)** | [user-flows/service-lifecycle.md](user-flows/service-lifecycle.md) |
 | Монетизация (развёрнуто) | [../collaboration/monetization-win-win.md](../collaboration/monetization-win-win.md) |
 | Видение продукта | [prd/01-vision.md](prd/01-vision.md) |
