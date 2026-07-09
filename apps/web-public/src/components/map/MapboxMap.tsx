@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
+import { useEffect, useRef, useState } from "react";
 import { DEMO_CEMETERY, MAPBOX_STYLE, type MapLocation } from "@memora/shared";
-import { getMapboxToken } from "@/lib/mapbox";
+import { getMapboxToken, hasMapboxToken } from "@/lib/mapbox";
+import { CemeteryMap } from "../CemeteryMap";
 import "./mapbox.css";
+
+const MAPBOX_WORKER_URL =
+  "https://api.mapbox.com/mapbox-gl-js/v3.25.0/mapbox-gl-csp-worker.js";
 
 export interface MapboxMapProps {
   center?: [number, number];
@@ -25,41 +27,62 @@ export function MapboxMap({
   onMarkerClick,
 }: MapboxMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<mapboxgl.Map | null>(null);
-  const markersRef = useRef<mapboxgl.Marker[]>([]);
+  const mapRef = useRef<import("mapbox-gl").Map | null>(null);
+  const markersRef = useRef<import("mapbox-gl").Marker[]>([]);
+  const mapboxRef = useRef<typeof import("mapbox-gl").default | null>(null);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !hasMapboxToken()) return;
 
-    mapboxgl.accessToken = getMapboxToken();
-    // CDN worker — fixes GitHub Pages subpath (/memora-platform/)
-    mapboxgl.workerUrl = `https://api.mapbox.com/mapbox-gl-js/v${mapboxgl.version}/mapbox-gl-csp-worker.js`;
+    let cancelled = false;
 
-    const map = new mapboxgl.Map({
-      container: containerRef.current,
-      style: MAPBOX_STYLE,
-      center,
-      zoom,
-      interactive,
-      attributionControl: true,
-    });
+    async function initMap() {
+      try {
+        const mapboxModule = await import("mapbox-gl");
+        await import("mapbox-gl/dist/mapbox-gl.css");
 
-    map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), "top-right");
+        if (cancelled || !containerRef.current) return;
 
-    mapRef.current = map;
+        const mapboxgl = mapboxModule.default;
+        mapboxRef.current = mapboxgl;
+        mapboxgl.accessToken = getMapboxToken();
+        mapboxgl.workerUrl = MAPBOX_WORKER_URL;
+
+        const map = new mapboxgl.Map({
+          container: containerRef.current,
+          style: MAPBOX_STYLE,
+          center,
+          zoom,
+          interactive,
+          attributionControl: true,
+        });
+
+        map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), "top-right");
+        mapRef.current = map;
+      } catch (error) {
+        console.error("Mapbox init failed:", error);
+        if (!cancelled) setFailed(true);
+      }
+    }
+
+    void initMap();
 
     return () => {
+      cancelled = true;
       markersRef.current.forEach((m) => m.remove());
       markersRef.current = [];
-      map.remove();
+      mapRef.current?.remove();
       mapRef.current = null;
+      mapboxRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     const map = mapRef.current;
-    if (!map) return;
+    const mapboxgl = mapboxRef.current;
+    if (!map || !mapboxgl) return;
 
     markersRef.current.forEach((m) => m.remove());
     markersRef.current = [];
@@ -91,6 +114,14 @@ export function MapboxMap({
     if (!map) return;
     map.flyTo({ center, zoom, duration: 800 });
   }, [center, zoom]);
+
+  if (failed) {
+    return (
+      <div className={`h-full w-full min-h-[280px] p-4 ${className}`}>
+        <CemeteryMap variant="hero" />
+      </div>
+    );
+  }
 
   return (
     <div

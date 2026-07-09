@@ -9,18 +9,27 @@ import { CemeteryMap } from "../CemeteryMap";
 import type { GeocodingResult } from "@/lib/mapbox";
 import { hasMapboxToken } from "@/lib/mapbox";
 
+function safeDecode(value: string | null): string | undefined {
+  if (!value) return undefined;
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
 function parseLocation(params: URLSearchParams): MapLocation {
   const lng = params.get("lng");
   const lat = params.get("lat");
-  const name = params.get("name");
+  const name = safeDecode(params.get("name"));
 
   if (lng && lat) {
     const coordinates: [number, number] = [parseFloat(lng), parseFloat(lat)];
     if (!Number.isNaN(coordinates[0]) && !Number.isNaN(coordinates[1])) {
       return {
         id: "search-result",
-        name: name ? decodeURIComponent(name) : "Ausgewählter Ort",
-        address: name ? decodeURIComponent(name) : `${lat}, ${lng}`,
+        name: name ?? "Ausgewählter Ort",
+        address: name ?? `${lat}, ${lng}`,
         coordinates,
       };
     }

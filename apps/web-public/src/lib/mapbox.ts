@@ -1,17 +1,15 @@
 import { MAPBOX_GEOCODING_TYPES } from "@memora/shared";
 
 export function getMapboxToken(): string {
-  const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+  const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN?.trim();
   if (!token) {
-    throw new Error(
-      "NEXT_PUBLIC_MAPBOX_TOKEN fehlt. Token aus Mapbox Dashboard oder meeting-point-finder .env übernehmen."
-    );
+    throw new Error("NEXT_PUBLIC_MAPBOX_TOKEN fehlt.");
   }
   return token;
 }
 
 export function hasMapboxToken(): boolean {
-  return Boolean(process.env.NEXT_PUBLIC_MAPBOX_TOKEN);
+  return Boolean(process.env.NEXT_PUBLIC_MAPBOX_TOKEN?.trim());
 }
 
 export interface GeocodingResult {
