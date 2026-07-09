@@ -37,8 +37,8 @@ export function EditorialLandscapeMap({ className = "" }: EditorialLandscapeMapP
           key={y}
           d={`M0 ${y} Q120 ${y - 18 - i * 2} 240 ${y - 8} T480 ${y + 6} T640 ${y - 4}`}
           stroke="#1b1b1b"
-          strokeWidth="0.4"
-          opacity={0.06 + i * 0.012}
+          strokeWidth="0.45"
+          opacity={0.1 + i * 0.018}
         />
       ))}
 
@@ -46,13 +46,13 @@ export function EditorialLandscapeMap({ className = "" }: EditorialLandscapeMapP
       <path
         d="M0 480 L0 60 Q40 20 90 70 Q130 30 170 90 Q200 50 230 110 L250 480 Z"
         fill="url(#land-hatch)"
-        opacity="0.55"
+        opacity="0.7"
       />
       {/* Right woodland */}
       <path
         d="M640 480 L640 40 Q590 10 540 60 Q500 25 460 80 Q420 45 390 100 L370 480 Z"
         fill="url(#land-hatch)"
-        opacity="0.45"
+        opacity="0.6"
       />
 
       {/* Trees — left grove */}
@@ -64,7 +64,7 @@ export function EditorialLandscapeMap({ className = "" }: EditorialLandscapeMapP
         [120, 175, 1],
         [145, 230, 0.9],
       ].map(([x, y, s], i) => (
-        <g key={`tl-${i}`} transform={`translate(${x}, ${y}) scale(${s})`} opacity={0.28}>
+        <g key={`tl-${i}`} transform={`translate(${x}, ${y}) scale(${s})`} opacity={0.38}>
           <path d="M0 18 L0 -14" stroke="#1b1b1b" strokeWidth="0.55" />
           <path d="M-16 4 Q0 -22 16 4" stroke="#1b1b1b" strokeWidth="0.55" />
           <path d="M-12 10 Q0 -12 12 10" stroke="#1b1b1b" strokeWidth="0.45" opacity="0.65" />
@@ -78,7 +78,7 @@ export function EditorialLandscapeMap({ className = "" }: EditorialLandscapeMapP
         [585, 120, 32],
         [500, 175, 26],
       ].map(([x, y, h], i) => (
-        <g key={`pr-${i}`} opacity={0.26}>
+        <g key={`pr-${i}`} opacity={0.34}>
           <path d={`M${x} ${y + h} L${x} ${y + h - 5}`} stroke="#1b1b1b" strokeWidth="0.5" />
           <path
             d={`M${x} ${y + 6} L${x - 9} ${y + h - 3} L${x + 9} ${y + h - 3} Z`}
@@ -101,7 +101,7 @@ export function EditorialLandscapeMap({ className = "" }: EditorialLandscapeMapP
         d="M40 420 Q140 380 220 360 Q300 340 360 320 Q420 300 500 310 Q560 318 600 340"
         stroke="#1b1b1b"
         strokeWidth="0.65"
-        opacity="0.18"
+        opacity="0.28"
         strokeLinecap="round"
       />
       <path
@@ -112,7 +112,7 @@ export function EditorialLandscapeMap({ className = "" }: EditorialLandscapeMapP
       />
 
       {/* Village cluster — center-right */}
-      <g opacity="0.62">
+      <g opacity="0.78">
         {/* House 1 */}
         <g transform="translate(380, 248)">
           <rect x="0" y="18" width="36" height="28" stroke="#1b1b1b" strokeWidth="0.6" />

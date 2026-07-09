@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { DEMO_CEMETERY } from "@memora/shared";
 import { hasMapboxToken, staticMapUrl } from "@/lib/mapbox";
+import { EditorialStreetMap } from "./EditorialStreetMap";
 
 interface MapboxStaticPreviewProps {
   className?: string;
@@ -8,13 +9,7 @@ interface MapboxStaticPreviewProps {
 
 export function MapboxStaticPreview({ className = "" }: MapboxStaticPreviewProps) {
   if (!hasMapboxToken()) {
-    return (
-      <div
-        className={`flex items-center justify-center bg-[#EDECE8] text-xs text-[#666] ${className}`}
-      >
-        Karte — Token in .env.local
-      </div>
-    );
+    return <EditorialStreetMap className={className} label="Südfriedhof" />;
   }
 
   const src = staticMapUrl(DEMO_CEMETERY.coordinates, {
