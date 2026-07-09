@@ -5,6 +5,13 @@ const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "memora-platfor
 
 const nextConfig: NextConfig = {
   transpilePackages: ["@memora/shared"],
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "mapbox-gl": "mapbox-gl/dist/mapbox-gl.js",
+    };
+    return config;
+  },
   ...(isGithubPages
     ? {
         output: "export" as const,

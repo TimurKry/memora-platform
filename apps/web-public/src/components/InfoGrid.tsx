@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { CemeteryMap } from "./CemeteryMap";
+import { InfoGridSearch } from "./map/InfoGridSearch";
+import { MapboxStaticPreview } from "./map/MapboxStaticPreview";
 
 function LilyDrawing() {
   return (
@@ -53,23 +54,9 @@ export function InfoGrid() {
           <p className="editorial-body mt-5">
             Friedhof oder Grab finden — mit illustrierten Wegkarten für jeden Friedhof.
           </p>
-          <form className="mt-7" action="/suchen">
-            <label className="sr-only" htmlFor="cemetery-search">
-              Friedhof oder Ort
-            </label>
-            <div className="relative">
-              <input
-                id="cemetery-search"
-                type="search"
-                name="q"
-                placeholder="Friedhof oder Ort eingeben"
-                className="w-full border border-memora-border bg-memora-white py-3.5 pl-4 pr-10 text-[13px] focus:border-memora-accent focus:outline-none"
-              />
-              <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-[15px] text-memora-muted">
-                ⌕
-              </span>
-            </div>
-          </form>
+          <div className="mt-7">
+            <InfoGridSearch />
+          </div>
           <Link
             href="/karte"
             className="mt-5 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-memora-text transition-opacity hover:opacity-60"
@@ -88,8 +75,8 @@ export function InfoGrid() {
               <br />
               04275 Leipzig
             </p>
-            <div className="aspect-[4/3] w-full max-w-[130px] shrink-0 border border-memora-border bg-memora-white p-2">
-              <CemeteryMap variant="mini" />
+            <div className="aspect-[4/3] w-full max-w-[130px] shrink-0 border border-memora-border overflow-hidden">
+              <MapboxStaticPreview className="h-full w-full" />
             </div>
           </div>
           <Link

@@ -36,6 +36,7 @@ jobs:
         env:
           GITHUB_PAGES: "true"
           GITHUB_REPOSITORY: ${{ github.repository }}
+          NEXT_PUBLIC_MAPBOX_TOKEN: ${{ secrets.MAPBOX_TOKEN }}
         run: pnpm --filter web-public build
 
       - name: Add .nojekyll for GitHub Pages

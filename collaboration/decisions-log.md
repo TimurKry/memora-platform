@@ -11,6 +11,8 @@
 | 2026-07-05 | Timur | web-public в MVP | Discovery на GitHub Pages |
 | 2026-07-06 | Timur | Дизайн по референсу MEMORA | Cream, serif, line-art |
 | 2026-07-06 | — | Папка `collaboration/` для работы с партнёршей | — |
+| 2026-07-09 | Timur | Win-win monetization: SaaS + payment fee + leads + marketplace | См. `collaboration/monetization-win-win.md` |
+| 2026-07-09 | Timur | B2C бесплатно; зарабатываем с B2B и транзакций | Этика DE, aligned incentives |
 
 ---
 

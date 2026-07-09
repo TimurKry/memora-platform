@@ -19,16 +19,18 @@
 | # | Задача | Статус |
 |---|--------|--------|
 | P1 | Интервью 2–3 funeral directors (DE) | idea |
-| P2 | Pricing tiers — черновик | idea |
+| P2 | Pricing tiers — черновик | agreed |
 | P3 | Cemetery-first pitch deck | idea |
+| P4 | Win-win monetization model | agreed |
 
 ## Tech (после согласования)
 
 | # | Задача | Статус |
 |---|--------|--------|
-| T1 | Homepage redesign v2 (референс) | in-code |
-| T2 | Страницы /vorsorge, /ratgeber shell | idea |
+| T1 | Homepage redesign v2 (референс) | done |
+| T2 | Страницы /vorsorge, /ratgeber shell | in-code |
 | T3 | Auth (Clerk) | idea |
+| T4 | Mapbox: /karte + cemetery search | in-code |
 
 ---
 

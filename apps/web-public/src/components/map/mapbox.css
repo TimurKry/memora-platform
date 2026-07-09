@@ -1,0 +1,47 @@
+.mapbox-editorial {
+  filter: grayscale(0.35) contrast(1.02);
+}
+
+.mapbox-editorial .mapboxgl-ctrl-group {
+  border: 1px solid #e6e4df !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.mapbox-editorial .mapboxgl-ctrl-group button {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.mapbox-editorial .mapboxgl-ctrl-group button + button {
+  border-top: 1px solid #e6e4df !important;
+}
+
+.mapbox-editorial .mapboxgl-ctrl-attrib {
+  font-size: 10px;
+  background: rgba(247, 246, 242, 0.85) !important;
+}
+
+.mapbox-editorial .mapboxgl-popup-content {
+  border-radius: 0;
+  border: 1px solid #e6e4df;
+  box-shadow: none;
+  padding: 12px 14px;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-size: 13px;
+}
+
+.mapbox-editorial .mapboxgl-popup-close-button {
+  font-size: 18px;
+  padding: 4px 8px;
+}
+
+.memora-marker {
+  width: 14px;
+  height: 14px;
+  background: #1b1b1b;
+  border: 2px solid #f7f6f2;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
