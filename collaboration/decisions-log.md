@@ -14,7 +14,7 @@
 | 2026-07-09 | Timur | Win-win monetization: SaaS + payment fee + leads + marketplace | См. `collaboration/monetization-win-win.md` |
 | 2026-07-09 | Timur | B2C бесплатно; зарабатываем с B2B и транзакций | Этика DE, aligned incentives |
 | 2026-07-09 | Timur | Technical Documentation Agent + ECOSYSTEM.md | AGENTS.md, docs/ structure |
-| 2026-07-09 | Timur | Документация на русском; README как навигация | docs/README, корневой README |
+| 2026-07-10 | Timur | **Founding phase: €0 до 5 бюро** | SaaS, fees, лиды — €0; KPI = 5 бюро + 15 Cases; MRR с 6-го |
 
 ---
 
