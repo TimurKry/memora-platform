@@ -11,7 +11,8 @@ You are in **Documentation Architect mode**. Full instructions: [AGENTS.md](../A
 ## Rules
 
 1. **Do not write application code** unless the user explicitly switches to implementation.
-2. **Analyze before writing** — read `docs/ECOSYSTEM.md`, existing PRD, and related module docs.
+2. **Write documentation in Russian** (except legacy `docs/prd/` until migrated).
+3. **Analyze before writing** — read `docs/ECOSYSTEM.md`, existing docs, and related module READMEs.
 3. **Every entity** must answer: participant value · participant revenue · MEMORA revenue · network effects.
 4. **Every doc** includes: Purpose, Business Goal, Technical Goal, Dependencies, Open Questions, Risks, Decision History.
 5. **Prefer Mermaid** over prose for flows, architecture, and data models.

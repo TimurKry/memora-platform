@@ -1,96 +1,136 @@
-# MEMORA Documentation Hub
+# Документация MEMORA
 
-> **Single source of truth** for architecture, business, and implementation specs.  
-> Maintained by the [Technical Documentation Agent](../AGENTS.md).  
-> **Ecosystem map:** [`ECOSYSTEM.md`](ECOSYSTEM.md) — required reading before any module design.
-
----
-
-## Status legend
-
-| Status | Meaning |
-|--------|---------|
-| ✅ Done | Reviewed, usable |
-| 🟡 Draft | Exists, needs expansion |
-| ⬜ Planned | Structure only |
+> **Единый источник правды** для архитектуры, бизнеса и спецификаций.  
+> **Язык:** русский (папка `prd/` — legacy на английском, постепенно переносим сюда).  
+> **Агент:** [AGENTS.md](../AGENTS.md) · **Экосистема:** [ECOSYSTEM.md](ECOSYSTEM.md) — читать перед любым модулем.
 
 ---
 
-## Structure
+## Как пользоваться этой папкой
+
+### Если вы человек
+
+1. Прочитайте **[ECOSYSTEM.md](ECOSYSTEM.md)** — кто участники, кто на чём зарабатывает
+2. Откройте нужный модуль в таблице ниже
+3. Сверьтесь с **[decisions/](decisions/)** и **[../collaboration/decisions-log.md](../collaboration/decisions-log.md)**
+
+### Если вы ИИ-агент
+
+1. `ECOSYSTEM.md` → ответьте на 4 вопроса для каждого затронутого участника
+2. Пишите документы **на русском**
+3. Добавляйте Mermaid-диаграммы
+4. Обновите статус в этой таблице
+5. Коммит: `docs: <описание>` → push
+
+---
+
+## Легенда статусов
+
+| Статус | Значение |
+|--------|----------|
+| ✅ | Готово, можно опираться |
+| 🟡 | Черновик, нужно дополнить |
+| ⬜ | Только структура папки |
+
+---
+
+## Структура `docs/` — что где лежит
 
 ```
 docs/
-├── ECOSYSTEM.md          ← Win-win map (all participants) ✅
-├── README.md             ← This file
 │
-├── architecture/         ⬜ System design, services, deployment topology
-├── business/             🟡 Model, pricing, monetization
-├── database/             🟡 ER diagrams, schemas (see also prd/07)
-├── api/                  ⬜ REST/OpenAPI specs per module
-├── modules/              ⬜ Cross-cutting module index
+├── README.md              ← ВЫ ЗДЕСЬ — навигация по документации
+├── ECOSYSTEM.md           ← ★ Экосистема и монетизация (win-win)
+├── tech-stack.md          ← Стек: Next.js, NestJS, Prisma, Stripe…
 │
-├── crm/                  ⬜ Leads, contacts, Cases, timeline
-├── marketplace/          ⬜ Catalog, orders, commissions
-├── cemetery/             ⬜ Maps, plots, reservations, navigation
-├── crematorium/          ⬜ Scheduling, capacity, status
-├── white-label/          ⬜ Tenants, branding, domains, feature flags
+├── architecture/          ⬜ Системная архитектура, C4, сервисы
+├── business/              🟡 Бизнес-модель, тарифы, подписки
+├── database/              🟡 ER-диаграммы, схема БД
+├── api/                   ⬜ REST/OpenAPI по модулям
+├── modules/               ⬜ Индекс всех модулей платформы
 │
-├── user-flows/           🟡 Journeys (see also prd/05)
-├── security/             ⬜ Auth, GDPR, audit, RBAC
-├── deployment/           🟡 CI/CD, GitHub Pages, cloud (see tech-stack.md)
-├── integrations/         ⬜ Stripe, Mapbox, email, insurance APIs
-├── ai/                   ⬜ Future: assistant, OCR, recommendations
+├── crm/                   🟡 Cases, контакты, воронка, timeline
+├── marketplace/           ⬜ Каталог, заказы, комиссии
+├── cemetery/              🟡 Карты, участки, поиск могил
+├── crematorium/           ⬜ Расписание, слоты, статусы
+├── white-label/           🟡 Тенанты, брендинг, домены
 │
-├── roadmap/              🟡 Phases (see prd/12-roadmap.md)
-├── diagrams/             ⬜ Shared Mermaid sources
-├── decisions/            🟡 ADRs
-├── glossary/             🟡 Terms (see prd/glossary.md)
+├── user-flows/            🟡 Сценарии пользователей (Mermaid)
+├── security/              ⬜ Auth, GDPR, RBAC, аудит
+├── deployment/            🟡 CI/CD, GitHub Pages, облако
+├── integrations/          🟡 Stripe, Mapbox, email, страховые
+├── ai/                    ⬜ Будущее: ассистент, OCR
 │
-└── prd/                  ✅ Formal PRD sections (English)
+├── roadmap/               🟡 Фазы и вехи
+├── diagrams/              ⬜ Общие Mermaid-источники
+├── decisions/             🟡 ADR — архитектурные решения
+├── glossary/              🟡 Термины (Case, Tenant, …)
+│
+└── prd/                   ✅ Формальный PRD (English, legacy)
 ```
 
 ---
 
-## Quick links
+## Быстрые ссылки по темам
 
-| Topic | Document |
-|-------|----------|
-| **Ecosystem & monetization** | [`ECOSYSTEM.md`](ECOSYSTEM.md) |
-| Vision | [`prd/01-vision.md`](prd/01-vision.md) |
-| Business model | [`prd/02-business-model.md`](prd/02-business-model.md) · [`business/README.md`](business/README.md) |
-| Entities & Case | [`prd/03-business-structure.md`](prd/03-business-structure.md) |
-| Personas & RBAC | [`prd/04-personas-roles.md`](prd/04-personas-roles.md) |
-| User flows | [`prd/05-user-flows.md`](prd/05-user-flows.md) |
-| Features | [`prd/06-features.md`](prd/06-features.md) |
-| Database | [`prd/07-database.md`](prd/07-database.md) · [`database/README.md`](database/README.md) |
-| Roadmap | [`prd/12-roadmap.md`](prd/12-roadmap.md) |
-| Tech stack | [`tech-stack.md`](tech-stack.md) |
-| Win-win (RU) | [`../collaboration/monetization-win-win.md`](../collaboration/monetization-win-win.md) |
-| Team decisions | [`../collaboration/decisions-log.md`](../collaboration/decisions-log.md) |
-
----
-
-## Agent workflow
-
-1. Read `ECOSYSTEM.md`
-2. Pick or create module doc under the right folder
-3. Add Mermaid diagrams
-4. Update this index (status)
-5. ADR for architectural decisions → `decisions/`
-6. Commit: `docs: <what changed>`
+| Тема | Документ |
+|------|----------|
+| **Экосистема и деньги** | [ECOSYSTEM.md](ECOSYSTEM.md) |
+| Монетизация (развёрнуто) | [../collaboration/monetization-win-win.md](../collaboration/monetization-win-win.md) |
+| Видение продукта | [prd/01-vision.md](prd/01-vision.md) |
+| Бизнес-модель | [prd/02-business-model.md](prd/02-business-model.md) · [business/](business/) |
+| Сущности и Case | [prd/03-business-structure.md](prd/03-business-structure.md) |
+| Роли и RBAC | [prd/04-personas-roles.md](prd/04-personas-roles.md) |
+| Пользовательские потоки | [prd/05-user-flows.md](prd/05-user-flows.md) · [user-flows/](user-flows/) |
+| Фичи MVP | [prd/06-features.md](prd/06-features.md) |
+| База данных | [prd/07-database.md](prd/07-database.md) · [database/](database/) |
+| Roadmap | [prd/12-roadmap.md](prd/12-roadmap.md) · [roadmap/](roadmap/) |
+| Стек | [tech-stack.md](tech-stack.md) |
+| Решения команды | [../collaboration/decisions-log.md](../collaboration/decisions-log.md) |
+| Дизайн | [../collaboration/design-system.md](../collaboration/design-system.md) |
 
 ---
 
-## Implementation apps (reference)
+## Модули ↔ приложения
 
-| App | Port | Doc surface |
-|-----|------|-------------|
-| web-public | 3000 | B2C discovery · [`white-label/`](white-label/) |
-| web-tenant | 3001 | Branded tenant site |
-| web-partner | 3002 | B2B portal · [`crm/`](crm/) |
-| web-admin | 3003 | Platform ops |
-| api | 4000 | [`api/`](api/) |
+| Модуль в `docs/` | Код в `apps/` | Участники |
+|------------------|---------------|-----------|
+| [white-label/](white-label/) | `web-tenant` | Бюро, кладбище |
+| [crm/](crm/) | `web-partner` | Бюро, семья (статус) |
+| [cemetery/](cemetery/) | `web-public` `/karte` | Кладбище, семья |
+| [marketplace/](marketplace/) | Phase 2 | Поставщики, бюро |
+| [api/](api/) | `api` (planned) | Все |
+| deployment | `.github/workflows/` | DevOps |
 
 ---
 
-*Last updated: 2026-07-09*
+## Стандарт документа
+
+Каждый содержательный документ включает:
+
+| Раздел | Содержание |
+|--------|------------|
+| Цель | Зачем документ |
+| Бизнес-цель | Ценность для пользователей и партнёров |
+| Техническая цель | Что строят инженеры |
+| Зависимости | Связанные модули |
+| Открытые вопросы | Нерешённое |
+| Риски | Юридические, технические |
+| История решений | Ссылка на `decisions/` |
+
+Шаблон ADR: [decisions/000-template.md](decisions/000-template.md)
+
+---
+
+## Связь с остальным репозиторием
+
+| Папка | Роль |
+|-------|------|
+| [`../README.md`](../README.md) | Вход в проект — карта всего репо |
+| [`../collaboration/`](../collaboration/) | Брифы для партнёра, тексты DE |
+| [`../apps/`](../apps/) | Реализация UI |
+| [`../packages/shared/`](../packages/shared/) | Общие типы |
+
+---
+
+*Обновлено: 2026-07-09*

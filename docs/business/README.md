@@ -1,29 +1,17 @@
-# Business Documentation
+# Бизнес-документация
 
-## Purpose
+## Цель
 
-Business model, pricing, subscriptions, and go-to-market — linked to ecosystem value.
+Бизнес-модель, ценообразование, подписки, go-to-market.
 
-## Business Goal
+## Документы
 
-Align product modules with revenue and partner incentives.
+| Документ | Статус |
+|----------|--------|
+| [ECOSYSTEM.md](../ECOSYSTEM.md) | ✅ Карта участников и доходов |
+| [../../collaboration/monetization-win-win.md](../../collaboration/monetization-win-win.md) | ✅ Монетизация (развёрнуто) |
+| [../prd/02-business-model.md](../prd/02-business-model.md) | 🟡 PRD legacy (EN) |
 
-## Technical Goal
+## Открытые вопросы
 
-Define billing adapters, plan entitlements, and Stripe products.
-
-## Documents
-
-| Doc | Status |
-|-----|--------|
-| [`../prd/02-business-model.md`](../prd/02-business-model.md) | 🟡 Revenue streams, pilot pricing |
-| [`../../collaboration/monetization-win-win.md`](../../collaboration/monetization-win-win.md) | ✅ Win-win (RU) |
-| [`../ECOSYSTEM.md`](../ECOSYSTEM.md) | ✅ Participant matrix |
-
-## Open Questions
-
-See [`../prd/open-questions.md`](../prd/open-questions.md) and [`../ECOSYSTEM.md`](../ECOSYSTEM.md#open-questions).
-
-## Decision History
-
-[`../decisions/`](../decisions/)
+[../ECOSYSTEM.md#открытые-вопросы](../ECOSYSTEM.md#открытые-вопросы)

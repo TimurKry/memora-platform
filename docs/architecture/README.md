@@ -1,36 +1,20 @@
-# Architecture
+# Архитектура
 
-## Purpose
+## Цель
 
-System architecture: services, boundaries, deployment, scalability.
+Системная архитектура: сервисы, границы, деплой, масштабирование.
 
-## Business Goal
+## Статус
 
-Support white-label multi-tenant SaaS with funeral-industry workflows.
+⬜ Запланировано:
 
-## Technical Goal
+- [ ] C4 Context + Container
+- [ ] Поток tenant resolution
+- [ ] Границы событий Case lifecycle
+- [ ] ADR: modular monolith vs microservices
 
-Document modular monolith → services evolution path.
+## Зависимости
 
-## Status
-
-⬜ **Planned** — start with:
-
-- [ ] C4 Context + Container diagrams
-- [ ] Tenant resolution flow
-- [ ] Event boundaries (Case lifecycle)
-- [ ] Monolith vs modular monolith decision ADR
-
-## Dependencies
-
-- [`../ECOSYSTEM.md`](../ECOSYSTEM.md)
-- [`../tech-stack.md`](../tech-stack.md)
-- [`../prd/03-business-structure.md`](../prd/03-business-structure.md)
-
-## Related Modules
-
-All apps in `apps/` · future `api/`
-
-## Decision History
-
-[`../decisions/`](../decisions/)
+- [ECOSYSTEM.md](../ECOSYSTEM.md)
+- [tech-stack.md](../tech-stack.md)
+- [prd/03-business-structure.md](../prd/03-business-structure.md)

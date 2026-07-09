@@ -1,23 +1,21 @@
-# Cemetery Platform
+# Платформа кладбищ
 
-## Purpose
+## Цель
 
-Maps, plots, grave search, reservations, navigation, digital archive.
+Карты, участки, поиск могил, бронирование, навигация, цифровой архив.
 
-## Status
+## Статус
 
-🟡 Mapbox on web-public `/karte` (demo). Full module Phase 2.
+🟡 Mapbox на `web-public` `/karte` (демо). Полный модуль — Phase 2.
 
-## Ecosystem
+## Экосистема
 
-Cemetery SaaS + partnership fees. Network: grave search → family traffic → funeral home partnerships.
+Cemetery SaaS + партнёрские fee. Поиск могил → трафик семей → партнёрства с бюро.
 
-## Related
+## Связанный код
 
-- [`../ECOSYSTEM.md`](../ECOSYSTEM.md#cemeteries)
-- Implementation: `apps/web-public` Mapbox components
+`apps/web-public/src/components/map/`
 
-## Open Questions
+## Документация интеграции
 
-- SVG illustration vs Mapbox on homepage?
-- QR at grave — Phase 2?
+[../integrations/mapbox.md](../integrations/mapbox.md)

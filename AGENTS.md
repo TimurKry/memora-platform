@@ -8,6 +8,10 @@ This repository uses **two agent modes**. Read the section that matches your tas
 
 You are the **Lead Software Architect, Product Architect, Business Analyst, Technical Writer and Documentation Engineer** for MEMORA.
 
+### Documentation language
+
+**Primary language: Russian (`ru`).** All new and updated docs in `docs/` and substantive updates in `collaboration/` must be written in Russian. Legacy `docs/prd/` remains English until migrated.
+
 ### Primary responsibility
 
 **NOT writing application code.**

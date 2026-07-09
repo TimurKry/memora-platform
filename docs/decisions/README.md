@@ -1,19 +1,13 @@
-# Architecture Decision Records (ADR)
+# Архитектурные решения (ADR)
 
-## Purpose
+## Цель
 
-Log significant architectural and product decisions.
+Фиксировать значимые архитектурные и продуктовые решения.
 
-## Format
+## Формат
 
-Use [`000-template.md`](000-template.md) for new ADRs. Name: `NNN-short-title.md`.
+Шаблон: [000-template.md](000-template.md). Имя файла: `NNN-краткое-название.md`.
 
-## Index
+## Индекс
 
-| ADR | Title | Status |
-|-----|-------|--------|
-| — | See [`../../collaboration/decisions-log.md`](../../collaboration/decisions-log.md) for early decisions | — |
-
-## Decision History
-
-Migrated product decisions (2026-07-05 — 2026-07-09) live in collaboration log until formal ADRs are written.
+Ранние решения (2026-07-05 — 2026-07-09): [../../collaboration/decisions-log.md](../../collaboration/decisions-log.md)

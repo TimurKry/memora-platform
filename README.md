@@ -1,77 +1,177 @@
 # Memora Platform
 
-White-label multi-tenant SaaS for the funeral industry — booking, payments, CRM, marketplace, cemetery management.
+White-label SaaS-экосистема для ритуальной индустрии: бронирование, оплаты, CRM, маркетплейс, кладбища.
 
-## Quick Start
+**Живой демо-сайт:** https://timurkry.github.io/memora-platform/
 
-**Requirements:** Node.js 20+, pnpm 9+
+---
+
+## С чего начать
+
+| Кто вы | Куда идти |
+|--------|-----------|
+| **Новый в проекте** | Этот README → [`docs/README.md`](docs/README.md) → [`docs/ECOSYSTEM.md`](docs/ECOSYSTEM.md) |
+| **Партнёр / продукт** | [`collaboration/README.md`](collaboration/README.md) |
+| **Разработчик** | [Быстрый старт](#быстрый-старт) → [`docs/tech-stack.md`](docs/tech-stack.md) |
+| **ИИ-агент** | [`AGENTS.md`](AGENTS.md) |
+
+---
+
+## Карта репозитория — что где лежит
+
+```
+memora-platform/
+│
+├── README.md                 ← ВЫ ЗДЕСЬ: обзор проекта и навигация
+├── AGENTS.md                 ← Инструкции для ИИ-агентов (архитектор + разработчик)
+│
+├── apps/                     ← Приложения (код)
+│   ├── web-public/           ← B2C сайт Memora (:3000) — поиск, карта, discovery
+│   ├── web-tenant/           ← White-label сайт бюро (:3001)
+│   ├── web-partner/          ← B2B кабинет — Cases, CRM (:3002)
+│   └── web-admin/            ← Админка платформы (:3003)
+│
+├── packages/
+│   └── shared/               ← Общие типы, демо-данные, константы карт
+│
+├── docs/                     ← ТЕХНИЧЕСКАЯ ДОКУМЕНТАЦИЯ (русский) ★
+│   ├── README.md             ← Хаб документации — структура и статусы
+│   ├── ECOSYSTEM.md          ← Экосистема: кто что получает, где зарабатываем
+│   ├── architecture/         ← Архитектура системы
+│   ├── business/             ← Бизнес-модель, цены
+│   ├── crm/ · marketplace/   ← Модули по доменам
+│   ├── cemetery/ · crematorium/
+│   ├── white-label/ · api/
+│   ├── user-flows/           ← Пользовательские сценарии
+│   ├── security/ · deployment/
+│   ├── integrations/         ← Stripe, Mapbox, …
+│   ├── decisions/            ← ADR — архитектурные решения
+│   ├── prd/                  ← Формальный PRD (англ., legacy)
+│   └── tech-stack.md         ← Стек технологий
+│
+├── collaboration/            ← Работа с партнёршей (RU/DE)
+│   ├── monetization-win-win.md
+│   ├── design-system.md
+│   ├── b2c-client-experience.md
+│   ├── b2b-business-owner.md
+│   ├── decisions-log.md      ← Журнал решений команды
+│   └── backlog.md
+│
+├── scripts/                  ← Деплой, push на GitHub Pages
+├── .github/workflows/        ← CI и Deploy GitHub Pages
+└── .cursor/rules/            ← Правила Cursor для агента-документатора
+```
+
+### Как связаны папки
+
+```mermaid
+flowchart LR
+    subgraph docs["docs/ — истина для разработки"]
+        ECO[ECOSYSTEM.md]
+        MOD[modules/]
+        PRD[prd/ legacy EN]
+    end
+
+    subgraph collab["collaboration/ — для команды"]
+        MON[monetization]
+        DES[design-system]
+    end
+
+    subgraph code["apps/ — реализация"]
+        PUB[web-public]
+        TEN[web-tenant]
+        PAR[web-partner]
+    end
+
+    ECO --> MOD
+    MON --> ECO
+    MOD --> PUB
+    MOD --> TEN
+    MOD --> PAR
+    PRD -.-> MOD
+```
+
+| Папка | Язык | Назначение |
+|-------|------|------------|
+| `docs/` | **Русский** | Архитектура, модули, API, БД — single source of truth |
+| `docs/prd/` | English | Ранний PRD; постепенно переносим в `docs/` на русский |
+| `collaboration/` | RU / DE | Брифы, дизайн, тексты для партнёра |
+| `apps/` | Код | Next.js 15, TypeScript, Tailwind |
+
+---
+
+## Быстрый старт
+
+**Нужно:** Node.js 20+, pnpm 9+
 
 ```bash
 pnpm install
-pnpm dev:public    # B2C discovery → http://localhost:3000
-pnpm dev:tenant    # White-label site → http://localhost:3001
+pnpm dev:public    # B2C → http://localhost:3000
+pnpm dev:tenant    # White-label → http://localhost:3001
 ```
 
-Or run all apps:
+| Приложение | Порт | Для кого |
+|------------|------|----------|
+| `web-public` | 3000 | Семьи — поиск бюро, карта кладбища |
+| `web-tenant` | 3001 | Клиент бюро — брендированный сайт |
+| `web-partner` | 3002 | Сотрудник бюро — Cases, CRM |
+| `web-admin` | 3003 | Оператор Memora |
 
-```bash
-pnpm dev
+**Mapbox локально:** скопируй токен в `apps/web-public/.env.local`:
+```env
+NEXT_PUBLIC_MAPBOX_TOKEN=pk....
 ```
 
-| App | Port | URL |
-|-----|------|-----|
-| web-public | 3000 | Discovery & search (B2C) |
-| web-tenant | 3001 | White-label funeral home site |
-| web-partner | 3002 | B2B partner dashboard |
-| web-admin | 3003 | Platform admin |
+---
 
-## Demo Flow
+## Демо-сценарий
 
-1. Open **http://localhost:3000** — search funeral homes in Berlin
-2. Click **Ansehen & Buchen** → white-label tenant site
-3. Book a demo appointment → creates Case reference `CASE-2026-0042`
-4. Open **http://localhost:3002** — see the case in partner portal
+1. **http://localhost:3000** — главная Memora, поиск, карта `/karte`
+2. **/suchen** — листинг бюро
+3. **/demo** — white-label + бронирование → Case `CASE-2026-0042`
+4. **http://localhost:3002** — дело в partner portal
 
-## Documentation
+---
 
-- **[AGENTS.md](./AGENTS.md)** — AI agent roles (Documentation Architect + Implementation)
-- **[Ecosystem map](./docs/ECOSYSTEM.md)** — win-win model for every participant
-- [Documentation hub](./docs/README.md)
-- [Collaboration workspace](./collaboration/README.md) — **работа с партнёршей**
-- [Tech Stack](./docs/tech-stack.md)
-- [Business Structure](./docs/prd/03-business-structure.md)
-- [PRD Outline](./docs/prd/README.md)
+## Ключевые решения (зафиксированы)
 
-## Decisions (locked)
+| Решение | Выбор |
+|---------|--------|
+| Аккаунт клиента | Hybrid — один login, данные per tenant |
+| Ядро MVP | **Case** — центральная сущность |
+| B2C discovery | **web-public** в MVP |
+| Кладбища | Hybrid — cemetery может быть отдельным tenant |
+| Монетизация | SaaS + % с оплат + маркетплейс → [`docs/ECOSYSTEM.md`](docs/ECOSYSTEM.md) |
 
-- **Customer account:** Hybrid (global identity, data isolated per tenant)
-- **Case model:** First-class entity from MVP
-- **web-public:** Included in MVP
+Полный журнал: [`collaboration/decisions-log.md`](collaboration/decisions-log.md)
 
-## Deploy (GitHub Pages — бесплатно)
+---
 
-После push сайт доступен на **`https://ВАШ-USERNAME.github.io/memora-platform/`**
+## Деплой (GitHub Pages)
 
-### Быстрый деплой (2 команды)
+После `git push` сайт обновляется автоматически (~2–3 мин).
+
+| URL | Страница |
+|-----|----------|
+| `/` | Главная B2C |
+| `/karte/` | Интерактивная карта (Mapbox) |
+| `/demo/` | White-label демо |
+
+**Секрет для карты на Pages:** GitHub → Settings → Secrets → `MAPBOX_TOKEN`
 
 ```powershell
-gh auth login
-cd C:\Users\timur\Projects\memora-platform
-.\scripts\push-github-pages.ps1
+gh run list   # статус деплоя
 ```
 
-Скрипт: создаёт repo → push → включает GitHub Pages → запускает deploy.
+---
 
-| URL | Что это |
-|-----|---------|
-| `/` | Поиск бюро (B2C) |
-| `/demo/` | White-label + бронирование |
+## Документация — порядок чтения
 
-Deploy занимает **2–3 минуты**. Статус: `gh run list`
-
-### Вручную включить Pages (если нужно)
-
-GitHub → repo → **Settings → Pages → Source: GitHub Actions**
+1. [`docs/README.md`](docs/README.md) — что в какой папке `docs/`
+2. [`docs/ECOSYSTEM.md`](docs/ECOSYSTEM.md) — win-win для всех участников
+3. [`collaboration/monetization-win-win.md`](collaboration/monetization-win-win.md) — детали монетизации
+4. [`docs/tech-stack.md`](docs/tech-stack.md) — стек
+5. Модуль, над которым работаете → `docs/crm/`, `docs/cemetery/`, …
 
 ---
 

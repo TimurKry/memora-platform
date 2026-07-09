@@ -1,15 +1,14 @@
-# Modules Index
+# Модули платформы
 
-Cross-cutting platform modules. Each links to a folder doc.
+Индекс доменных модулей.
 
-| Module | Doc | Phase |
-|--------|-----|-------|
-| CRM / Cases | [`../crm/`](../crm/) | MVP |
-| Marketplace | [`../marketplace/`](../marketplace/) | 2 |
-| Cemetery | [`../cemetery/`](../cemetery/) | 2 |
-| Crematorium | [`../crematorium/`](../crematorium/) | 2 |
-| White-label | [`../white-label/`](../white-label/) | MVP |
-| Payments | [`../integrations/stripe.md`](integrations/stripe.md) | 1 |
-| Notifications | [`../integrations/`](../integrations/) | 1 |
+| Модуль | Папка | Фаза |
+|--------|-------|------|
+| CRM / Cases | [crm/](../crm/) | MVP |
+| Маркетплейс | [marketplace/](../marketplace/) | 2 |
+| Кладбище | [cemetery/](../cemetery/) | 2 |
+| Крематорий | [crematorium/](../crematorium/) | 2 |
+| White-label | [white-label/](../white-label/) | MVP |
+| Платежи | [integrations/stripe.md](../integrations/stripe.md) | 1 |
 
-Ecosystem context: [`../ECOSYSTEM.md`](../ECOSYSTEM.md)
+Контекст: [ECOSYSTEM.md](../ECOSYSTEM.md)

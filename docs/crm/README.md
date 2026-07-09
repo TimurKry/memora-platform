@@ -1,30 +1,21 @@
-# CRM & Cases
+# CRM и Cases
 
-## Purpose
+## Цель
 
-Document Case lifecycle, contacts, leads, timeline, automation.
+Жизненный цикл Case, контакты, лиды, timeline, автоматизация.
 
-## Business Goal
+## Бизнес-цель
 
-Funeral home orchestrates entire journey; family sees status.
+Бюро оркестрирует путь; семья видит статус дела.
 
-## Technical Goal
+## Статус
 
-Case entity, stages, CRM modules in web-partner.
+🟡 MVP scope: [prd/03-business-structure.md](../prd/03-business-structure.md)
 
-## Status
+## Экосистема
 
-🟡 MVP scope in [`../prd/03-business-structure.md`](../prd/03-business-structure.md)
-
-## Ecosystem
-
-| Participant | Hook |
-|-------------|------|
-| Funeral home | Primary user — SaaS stickiness |
-| Family | Status portal — conversion |
-| MEMORA | SaaS + payment fee on closed Cases |
-
-## Open Questions
-
-- Case stages UI simplification in MVP?
-- Cross-tenant requests timeline (Phase 2)?
+| Участник | Связь |
+|----------|-------|
+| Бюро | Основной пользователь — удержание SaaS |
+| Семья | Портал статуса — конверсия |
+| Memora | SaaS + % с закрытых Cases |

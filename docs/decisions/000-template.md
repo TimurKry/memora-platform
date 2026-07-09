@@ -1,35 +1,35 @@
-# ADR-000: [Title]
+# ADR-000: [Название]
 
-## Status
+## Статус
 
-Proposed | Accepted | Deprecated | Superseded by ADR-XXX
+Предложено | Принято | Устарело | Заменено ADR-XXX
 
-## Date
+## Дата
 
-YYYY-MM-DD
+ГГГГ-ММ-ДД
 
-## Context
+## Контекст
 
-What is the issue? What forces are at play?
+В чём проблема? Какие силы действуют?
 
-## Decision
+## Решение
 
-What did we decide?
+Что решили?
 
-## Consequences
+## Последствия
 
-### Positive
+### Плюсы
 
-### Negative
+### Минусы
 
-### Neutral
+### Нейтральные
 
-## Ecosystem impact
+## Влияние на экосистему
 
-| Participant | Value | Their revenue | MEMORA revenue | Network effect |
-|-------------|-------|---------------|----------------|----------------|
+| Участник | Ценность | Их доход | Доход Memora | Сетевой эффект |
+|----------|----------|----------|--------------|----------------|
 | | | | | |
 
-## Related
+## Связанные документы
 
-- Links to docs, PRD sections, ECOSYSTEM.md
+- Ссылки на docs, PRD, ECOSYSTEM.md
