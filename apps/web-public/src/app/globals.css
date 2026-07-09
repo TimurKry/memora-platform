@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --memora-white: #ffffff;
-  --memora-paper: #f7f6f2;
-  --memora-accent: #111111;
-  --memora-text: #1b1b1b;
-  --memora-border: #e6e4df;
-  --memora-muted: #6b6b6b;
+  --memora-paper: #080808;
+  --memora-surface: #111111;
+  --memora-white: #161616;
+  --memora-accent: #e8e4dc;
+  --memora-text: #ebe7df;
+  --memora-border: #2a2826;
+  --memora-muted: #7d7870;
+  --memora-gold: #b5a17a;
+  --memora-ink: #050505;
 }
 
 @layer base {
@@ -22,48 +25,87 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  ::selection {
+    background: rgba(181, 161, 122, 0.35);
+    color: var(--memora-accent);
+  }
 }
 
-/* Subtle paper grain */
+/* Film grain */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 50;
-  opacity: 0.35;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.45;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
 }
 
 @layer components {
   .nav-link {
-    @apply text-[10px] font-normal uppercase tracking-[0.18em] text-memora-muted transition-colors duration-300 hover:text-memora-text;
+    @apply text-[10px] font-normal uppercase tracking-[0.2em] text-memora-muted transition-colors duration-300 hover:text-memora-gold;
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-3 bg-memora-accent px-7 py-3.5 text-[10px] font-normal uppercase tracking-[0.16em] text-white transition-opacity duration-300 hover:opacity-85;
+    @apply inline-flex items-center gap-3 bg-memora-accent px-7 py-3.5 text-[10px] font-normal uppercase tracking-[0.18em] text-memora-ink transition-all duration-300 hover:bg-memora-gold;
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-3 border border-memora-accent bg-memora-white px-7 py-3.5 text-[10px] font-normal uppercase tracking-[0.16em] text-memora-text transition-colors duration-300 hover:bg-memora-accent hover:text-white;
+    @apply inline-flex items-center gap-3 border border-memora-gold bg-transparent px-7 py-3.5 text-[10px] font-normal uppercase tracking-[0.18em] text-memora-gold transition-all duration-300 hover:bg-memora-gold hover:text-memora-ink;
   }
 
   .section-title {
-    @apply font-serif text-[1.35rem] leading-[1.25] tracking-[-0.01em] md:text-[1.5rem];
+    @apply font-serif text-[1.35rem] italic leading-[1.25] tracking-[-0.02em] md:text-[1.5rem];
   }
 
   .editorial-body {
     @apply text-[13px] leading-[1.75] text-memora-muted md:text-sm;
   }
 
+  .noir-eyebrow {
+    @apply font-[family-name:var(--font-oswald)] text-[10px] font-medium uppercase tracking-[0.32em];
+  }
+
+  .noir-map-frame {
+    @apply relative overflow-hidden border border-memora-border bg-memora-ink;
+    box-shadow:
+      inset 0 0 100px rgba(0, 0, 0, 0.85),
+      0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
+
+  .noir-map-overlay {
+    background:
+      linear-gradient(to bottom, rgba(8, 8, 8, 0.55) 0%, transparent 35%, transparent 65%, rgba(8, 8, 8, 0.7) 100%),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, transparent 20%, transparent 80%, rgba(0, 0, 0, 0.5) 100%);
+  }
+
+  .noir-venetian {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(0, 0, 0, 0.12) 3px,
+      rgba(0, 0, 0, 0.12) 5px
+    );
+    opacity: 0.35;
+  }
+
+  .noir-mapbox-hero .mapboxgl-ctrl-attrib {
+    background: rgba(8, 8, 8, 0.8) !important;
+    color: #666 !important;
+  }
+
   .fade-in {
-    animation: fadeIn 0.8s ease-out both;
+    animation: fadeIn 0.9s ease-out both;
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(8px);
+      transform: translateY(10px);
     }
     to {
       opacity: 1;

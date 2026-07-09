@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { DEMO_CEMETERY, type MapLocation } from "@memora/shared";
+import { DEMO_CEMETERY, MAPBOX_STYLE_NOIR, type MapLocation } from "@memora/shared";
 import { CemeterySearch } from "./CemeterySearch";
 import { MapboxMapClient } from "./MapboxMapClient";
 import { CemeteryMap } from "../CemeteryMap";
@@ -59,7 +59,7 @@ export function KarteMapSection() {
         <p className="text-xs text-memora-muted">
           Interaktive Karte — Token in <code className="text-memora-text">.env.local</code>
         </p>
-        <div className="aspect-[4/3] w-full border border-memora-border bg-[#faf9f6] p-4">
+        <div className="noir-map-frame aspect-[4/3] w-full p-2">
           <CemeteryMap variant="hero" />
         </div>
       </div>
@@ -69,11 +69,12 @@ export function KarteMapSection() {
   return (
     <div className="space-y-6">
       <CemeterySearch onSelect={handleSelect} />
-      <div className="aspect-[4/3] w-full border border-memora-border bg-[#faf9f6] p-3 shadow-[inset_0_0_0_1px_rgba(27,27,27,0.04)]">
+      <div className="noir-map-frame aspect-[4/3] w-full p-2">
         <MapboxMapClient
           center={location.coordinates}
           zoom={15}
           markers={[location]}
+          mapStyle={MAPBOX_STYLE_NOIR}
           key={location.id}
         />
       </div>

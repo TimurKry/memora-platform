@@ -15,4 +15,10 @@ export const DEMO_CEMETERY: MapLocation = {
 
 export const MAPBOX_STYLE = "mapbox://styles/mapbox/light-v11";
 
+/** Film-noir city map — dark streets, high contrast */
+export const MAPBOX_STYLE_NOIR = "mapbox://styles/mapbox/dark-v11";
+
+/** Leipzig city center for hero map */
+export const LEIPZIG_CENTER: [number, number] = [12.3731, 51.3397];
+
 export const MAPBOX_GEOCODING_TYPES = "place,poi,address";

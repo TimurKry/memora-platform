@@ -16,6 +16,7 @@ export interface MapboxMapProps {
   markers?: MapLocation[];
   className?: string;
   interactive?: boolean;
+  mapStyle?: string;
   onMarkerClick?: (location: MapLocation) => void;
 }
 
@@ -25,6 +26,7 @@ export function MapboxMap({
   markers = [DEMO_CEMETERY],
   className = "",
   interactive = true,
+  mapStyle = MAPBOX_STYLE,
   onMarkerClick,
 }: MapboxMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -51,7 +53,7 @@ export function MapboxMap({
 
         const map = new mapboxgl.Map({
           container: containerRef.current,
-          style: MAPBOX_STYLE,
+          style: mapStyle,
           center,
           zoom,
           interactive,
